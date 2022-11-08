@@ -15,3 +15,17 @@ The buildtool (or a zip) creates Two folders you need to copy into your project.
 4. Recompile your project.
 5. Start using the API!
 
+## Summary
+
+Your final Project will look like the following:
+
+```dirtree
+SomeProjectPath/
+└─ Plugins/
+   └─ UnrealCLR		<----- You should see the UnrealCLR folder here
+   └─ gdio.license	<----- Place your license here
+└─ Managed/
+   └─ GameDriver	<----- You should see a GameDriver folder here 
+└─ MyProject.uproject	
+└─ MyProject.sln	
+```
