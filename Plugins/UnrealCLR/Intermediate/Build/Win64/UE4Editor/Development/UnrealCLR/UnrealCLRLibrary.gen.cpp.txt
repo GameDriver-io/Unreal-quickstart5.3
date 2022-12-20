@@ -1,0 +1,5 @@
+E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\UnrealCLR\Definitions.UnrealCLR.h
+E:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+E:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR/Public/UnrealCLRLibrary.h
+E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Inc\UnrealCLR\UnrealCLRLibrary.generated.h

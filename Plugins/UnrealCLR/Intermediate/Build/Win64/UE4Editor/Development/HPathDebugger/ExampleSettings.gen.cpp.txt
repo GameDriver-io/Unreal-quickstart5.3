@@ -1,0 +1,5 @@
+E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\HPathDebugger\Definitions.HPathDebugger.h
+E:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+E:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\HPathDebugger/ExampleSettings.h
+E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Inc\HPathDebugger\ExampleSettings.generated.h

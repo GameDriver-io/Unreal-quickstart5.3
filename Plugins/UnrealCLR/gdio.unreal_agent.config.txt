@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config version="0.2">
+	<resolver>
+  		<useCache enabled ="false" />
+	</resolver>
+	<infobox enabled="true" x="400.0" y ="100.0" />
+</config>
