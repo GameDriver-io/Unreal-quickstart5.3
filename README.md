@@ -1,19 +1,25 @@
 # Unreal-quickstart
 
-## What you have
+## Concept
 
-The buildtool (or a zip) creates Two folders you need to copy into your project. If you do not have these folder, please refer to the build tool. 
+1. Gamedriver works by placing an small plugin in your game. That plugin communucates with our api, which you use to drive your game remotely.
+2. Setting up the plugin requires moving two folders into their correct locations in your project and downloading the license to the correct location.
+3. A simple project with the api has been included to allow you to talk to the game and get a list of objects at the root of the game. 
+
+## What is in this repository
+
+This repository contains a folder called "Managed" filled with dll files. It also contains a folder called "Plugin" containing a binary plugin. 
 
 - Managed
 - Plugin
 
 ## What you do next. 
 
-1. Copy the Entire "Managed" folder to the root of your Project.
+1. Copy the entire "Managed" folder to the root of your Project. (If you already have a "Managed" folder, copy the contents to the inside of it.)
 2. Copy the UnrealCLR folder inside the "Plugins" Directory to the "Plugins" folder in your project. (If it does not exist, create it).  
 3. Place a valid license (gdio.license.txt) in the "Plugins" folder of your project.
-4. Recompile your project.
-5. Start using the API!
+4. Open the project and click run to see the GDIO panel displaying. (you can hide it if you want in configuration files)
+5. Now you're ready to write external tests! You can connect to the running agent from your own test project using Gamedriver's unreal_api.
 
 ## Summary
 
