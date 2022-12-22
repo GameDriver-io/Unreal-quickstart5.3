@@ -28,6 +28,9 @@ namespace UnrealCLR {
 		int32 daysLeft;
 	};
 	UNREALCLR_API  UnrealCLR::guiMemory guiPanelMem;
+
+	UNREALCLR_API const FKey* getEKeyForIntValue(int val);
+	UNREALCLR_API const int getEKeyIntValue(FKey val);
 }
 
 ///////////////////GDIO

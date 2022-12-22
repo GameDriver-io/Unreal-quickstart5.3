@@ -7,11 +7,7 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "E:\Packing\UnrealCLR\HostProject\Intermediate\Build\Win64\UE4Editor\Development\UnrealEd\SharedPCH.UnrealEd.NonOptimized.ShadowErrors.h.obj"
-"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\UnrealCLR\AGDIO_OverlapHit.gen.cpp.obj"
-"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\UnrealCLR\UHitListener.gen.cpp.obj"
-"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\UnrealCLR\UnrealCLR.init.gen.cpp.obj"
-"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\UnrealCLR\UnrealCLRLibrary.gen.cpp.obj"
-"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\UnrealCLR\UnrealCLRManager.gen.cpp.obj"
-"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\UnrealCLR\UscreenGrabber.gen.cpp.obj"
+"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\UnrealCLR\Module.UnrealCLR.cpp.obj"
+"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\UnrealCLR\Module.UnrealCLR.gen.cpp.obj"
 "E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\UnrealCLR\Default.rc2.res"
 /OUT:"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\UnrealCLR\UE4Editor-UnrealCLR.lib"

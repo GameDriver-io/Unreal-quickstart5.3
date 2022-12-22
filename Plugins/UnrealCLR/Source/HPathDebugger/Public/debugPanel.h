@@ -5,6 +5,7 @@
 #endif
 #include "Framework/Application/SlateApplication.h"
 #include "HPathDebugger.h"
+#include "Widgets/Layout/SScrollBox.h"
 
 class debugPanel : public SCompoundWidget
 {

@@ -4,7 +4,7 @@
 
 1. Gamedriver works by placing an small plugin in your game. That plugin communucates with our api, which you use to drive your game remotely.
 2. Setting up the plugin requires moving two folders into their correct locations in your project and downloading the license to the correct location.
-3. A simple project with the api has been included to allow you to talk to the game and get a list of objects at the root of the game. 
+3. Once running, you will need to grab the api from our website, and connect to the game using it. 
 
 ## What is in this repository
 
@@ -35,3 +35,5 @@ SomeProjectPath/
 └─ MyProject.uproject	
 └─ MyProject.sln	
 ```
+
+# Note: This product is currently in Beta. 

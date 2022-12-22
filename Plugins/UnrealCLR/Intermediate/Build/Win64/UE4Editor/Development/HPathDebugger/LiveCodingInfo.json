@@ -1,5 +1,21 @@
 {
 	"RemapUnityFiles": 
 	{
+		"Module.HPathDebugger.cpp.obj": [
+			"MenuTool.cpp.obj",
+			"BPGDIOAgent.cpp.obj",
+			"debugPanel.cpp.obj",
+			"GDIOStyle.cpp.obj",
+			"HPathDebugger.cpp.obj",
+			"HPathDebuggerCommands.cpp.obj",
+			"HPathFramework.cpp.obj",
+			"TabTool.cpp.obj",
+			"TabToolPanel.cpp.obj"
+		],
+		"Module.HPathDebugger.gen.cpp.obj": [
+			"BPGDIOAgent.gen.cpp.obj",
+			"ExampleSettings.gen.cpp.obj",
+			"HPathDebugger.init.gen.cpp.obj"
+		]
 	}
 }

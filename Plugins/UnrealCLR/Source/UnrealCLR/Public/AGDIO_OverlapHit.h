@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "CoreUObject.h"
+//#include "CoreUObject.h"
 #include "GameFramework/Actor.h"
 #include "AGDIO_OverlapHit.generated.h"
 

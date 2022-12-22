@@ -7,8 +7,7 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "E:\Packing\UnrealCLR\HostProject\Intermediate\Build\Win64\UE4Editor\Development\UnrealEd\SharedPCH.UnrealEd.NonOptimized.ShadowErrors.h.obj"
-"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\HPathDebugger\BPGDIOAgent.gen.cpp.obj"
-"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\HPathDebugger\ExampleSettings.gen.cpp.obj"
-"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\HPathDebugger\HPathDebugger.init.gen.cpp.obj"
+"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\HPathDebugger\Module.HPathDebugger.cpp.obj"
+"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\HPathDebugger\Module.HPathDebugger.gen.cpp.obj"
 "E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\HPathDebugger\Default.rc2.res"
 /OUT:"E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Development\HPathDebugger\UE4Editor-HPathDebugger.lib"

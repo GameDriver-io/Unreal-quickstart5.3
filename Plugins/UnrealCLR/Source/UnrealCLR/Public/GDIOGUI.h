@@ -2,8 +2,11 @@
 
 
 #include "Framework/Application/SlateApplication.h"
-#include "SlateBasics.h"
-
+//#include "SlateBasics.h"
+#include "Widgets/SCanvas.h"
+#include "Widgets/Text/STextBlock.h"
+#include "Widgets/Layout/SBox.h"
+#include "Widgets/Layout/SBorder.h"
 class GDIOPanel : public SCompoundWidget
 {
 

@@ -2,7 +2,7 @@
 
 #include "AGDIO_OverlapHit.h"
 #include "CoreMinimal.h"
-#include "CoreUObject.h"
+//#include "CoreUObject.h"
 
 #include "UHitListener.generated.h"
 
