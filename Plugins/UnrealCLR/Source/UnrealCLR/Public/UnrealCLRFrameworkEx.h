@@ -5,6 +5,7 @@
 #include <Runtime/Engine/Public/ActorEditorUtils.h>
 #include <Runtime/Engine/Public/LevelUtils.h>
 #include <Runtime/Engine/Classes/Kismet/GameplayStatics.h>
+#include "Animation/AnimSequence.h"
 ///////////////////GDIO
 namespace UnrealCLR {
 #if WITH_EDITOR

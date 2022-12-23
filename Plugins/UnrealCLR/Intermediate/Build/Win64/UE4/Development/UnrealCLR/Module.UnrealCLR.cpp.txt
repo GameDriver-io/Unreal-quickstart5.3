@@ -1375,6 +1375,20 @@ E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\DialogueTypes.generate
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet\GameplayStaticsTypes.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\GameplayStaticsTypes.generated.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\GameplayStatics.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Animation/AnimSequence.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Public\Animation/AnimCompressionTypes.h
+E:\UE_4.27\Engine\Source\Runtime\Core\Public\Async/MappedFileHandle.h
+E:\UE_4.27\Engine\Source\Runtime\Core\Public\HAL/PlatformFilemanager.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\AnimCompressionTypes.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Animation\CustomAttributes.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Curves/StringCurve.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\StringCurve.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Curves/IntegralCurve.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\IntegralCurve.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Curves/SimpleCurve.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\SimpleCurve.generated.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\CustomAttributes.generated.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\AnimSequence.generated.h
 E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/GDIOInput.cpp
 E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Public\GDIOInput.h
 E:\UE_4.27\Engine\Source\Runtime\Slate\Public\Framework/Application/IInputProcessor.h
@@ -1396,7 +1410,6 @@ E:\UE_4.27\Engine\Source\Runtime\Core\Public\HAL/PlatformFile.h
 E:\UE_4.27\Engine\Source\Runtime\Core\Public\Windows/WindowsPlatformFile.h
 E:\UE_4.27\Engine\Source\Runtime\Core\Public\HAL/PlatformIncludes.h
 E:\UE_4.27\Engine\Source\Runtime\Core\Public\Misc/MonolithicHeaderBoilerplate.h
-E:\UE_4.27\Engine\Source\Runtime\Core\Public\HAL/PlatformFilemanager.h
 E:\UE_4.27\Engine\Source\Runtime\Core\Public\Misc/MessageDialog.h
 E:\UE_4.27\Engine\Source\Runtime\Core\Public\HAL/FileManager.h
 E:\UE_4.27\Engine\Source\Runtime\Core\Public\ProfilingDebugging/ScopedDebugInfo.h
@@ -1767,8 +1780,6 @@ E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\CurveVector.generated.
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/CurveTable.h
 E:\UE_4.27\Engine\Source\Runtime\Json\Public\Policies/PrettyJsonPrintPolicy.h
 E:\UE_4.27\Engine\Source\Runtime\Json\Public\Policies/JsonPrintPolicy.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Curves/SimpleCurve.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\SimpleCurve.generated.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\CurveTable.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Public\DataTableUtils.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/DataTable.h
@@ -2468,17 +2479,6 @@ C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\math.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\vcruntime_startup.h
 E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/UnrealCLR.cpp
 E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/UnrealCLRFramework.cpp
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Animation/AnimSequence.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Public\Animation/AnimCompressionTypes.h
-E:\UE_4.27\Engine\Source\Runtime\Core\Public\Async/MappedFileHandle.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\AnimCompressionTypes.generated.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Animation\CustomAttributes.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Curves/StringCurve.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\StringCurve.generated.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Curves/IntegralCurve.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\IntegralCurve.generated.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\CustomAttributes.generated.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\AnimSequence.generated.h
 E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/UnrealCLRFrameworkEx.cpp
 E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Public\UscreenGrabber.h
 E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4\Inc\UnrealCLR\UscreenGrabber.generated.h

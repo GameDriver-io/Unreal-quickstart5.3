@@ -36,10 +36,10 @@ public class UnrealCLR : ModuleRules {
 #endif
 
 		OptimizeCode = CodeOptimization.Never;
-        
-		PrecompileForTargets = PrecompileTargetsType.Any;
 
-        PublicIncludePaths.AddRange(new string[] { });
+// PrecompileForTargets = PrecompileTargetsType.Any;
+
+		PublicIncludePaths.AddRange(new string[] { });
 
 		PrivateIncludePaths.AddRange(new string[] { "../../../../../../UE_4.27/Engine/Plugins/Experimental/CommonUI/Source/CommonUI/Private/" });
 

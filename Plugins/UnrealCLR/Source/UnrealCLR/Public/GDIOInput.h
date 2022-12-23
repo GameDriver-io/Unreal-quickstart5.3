@@ -38,7 +38,7 @@ public:
 	bool HandleMouseWheelOrGestureEvent(FSlateApplication& SlateApp, const FPointerEvent& WheelEvent, const FPointerEvent* GestureEvent);
 	bool HandleMotionDetectedEvent(FSlateApplication& SlateApp, const FMotionEvent& MotionEvent);
 
-	virtual int32 GetOwnerUserIndex() const { return 0; };
+	virtual int32 GetOwnerUserIndex() const { return 8; };
 protected:
 
 
