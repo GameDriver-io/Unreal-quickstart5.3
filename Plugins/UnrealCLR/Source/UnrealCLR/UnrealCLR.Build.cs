@@ -28,16 +28,14 @@ using UnrealBuildTool;
 
 public class UnrealCLR : ModuleRules {
 	public UnrealCLR(ReadOnlyTargetRules Target) : base(Target) {
-		#if UE_4_24_OR_LATER
-			bLegacyPublicIncludePaths = false;
-			DefaultBuildSettings = BuildSettingsVersion.V2;
-		#else
-			PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
-#endif
 
-		OptimizeCode = CodeOptimization.Never;
+		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
-// PrecompileForTargets = PrecompileTargetsType.Any;
+		bUsePrecompiled = true;
+
+        OptimizeCode = CodeOptimization.Never;
+
+	 PrecompileForTargets = PrecompileTargetsType.Any;
 
 		PublicIncludePaths.AddRange(new string[] { });
 

@@ -11,9 +11,9 @@ class AGDIO_OverlapHit : public AActor {
 	GENERATED_BODY()
 
 public:
-	AGDIO_OverlapHit();
+	UNREALCLR_API AGDIO_OverlapHit();
 
-	AGDIO_OverlapHit(FString id);
+	UNREALCLR_API AGDIO_OverlapHit(FString id);
 
 public:
 	UPROPERTY(EditAnywhere, Category = "gamedriver")

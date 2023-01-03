@@ -22,10 +22,6 @@
 
 
 //#include "ModuleManager.h"
-	namespace HPathUtility {
-		FORCEINLINE static size_t Strcpy(char* Destination, const char* Source, size_t Length);
-		FORCEINLINE static size_t Strlen(const char* Source);
-	}
 
 
 class HPathDebugger :  public IExampleModuleInterface

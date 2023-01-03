@@ -19,5 +19,5 @@ class HPATHDEBUGGER_API UBPGDIOAgent : public UBlueprintFunctionLibrary
 public:
 
 	UFUNCTION(BlueprintCallable, Category = "My DLL Library")
-		static bool importDLL(FString folder, FString name);
+		 static bool importDLL(FString folder, FString name);
 };

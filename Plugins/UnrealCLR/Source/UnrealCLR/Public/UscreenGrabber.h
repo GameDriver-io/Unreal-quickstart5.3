@@ -11,9 +11,9 @@ class UscreenGrabber : public UObject {
 	GENERATED_BODY()
 
 public:
-	UscreenGrabber();
+	UNREALCLR_API UscreenGrabber();
 
-	UscreenGrabber(FString inscreenshotname);
+	UNREALCLR_API UscreenGrabber(FString inscreenshotname);
 
 	void HandleScreenshotData(int32 InSizeX, int32 InSizeY, const TArray<FColor>& InImageData);
 public:

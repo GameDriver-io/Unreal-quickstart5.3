@@ -12,7 +12,9 @@ public class HPathDebugger : ModuleRules {
 
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		OptimizeCode = CodeOptimization.Never;
+            		bUsePrecompiled = true;
+
+        OptimizeCode = CodeOptimization.Never;
         
         PrecompileForTargets = PrecompileTargetsType.Any;
 
