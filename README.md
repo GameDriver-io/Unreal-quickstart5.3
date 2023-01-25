@@ -24,7 +24,7 @@ This repository contains a folder called "Managed" filled with dll files. It als
 ## Common issues
 
 1. In order to simulate mouse clicks in the editor you will need to unset the "High DPI Support" flag in the editor preferences
-[Screenshot of the editor preference window, to illustrate how to disable "High DPI Support" ](img/EditorPreferences.png)
+![Screenshot of the editor preference window, to illustrate how to disable "High DPI Support" ](img/EditorPreferences.png)
 2. You may want to build clean for your project. Doing so will delete the precompiled binaries for the plugin. To recitify this copy the "Binary" and " Intermediate" folders from within the original plugin to your project's Plugin folder after making clean (or recopy the entire Plugin folder - if you prefer) 
 
 ## Summary
