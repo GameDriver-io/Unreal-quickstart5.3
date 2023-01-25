@@ -21,6 +21,12 @@ This repository contains a folder called "Managed" filled with dll files. It als
 4. Open the project and click run to see the GDIO panel displaying. (you can hide it if you want in configuration files)
 5. Now you're ready to write external tests! You can connect to the running agent from your own test project using Gamedriver's unreal_api.
 
+## Common issues
+
+1. In order to simulate mouse clicks in the editor you will need to unset the "High DPI Support" flag in the editor preferences
+[Screenshot of the editor preference window, to illustrate how to disable "High DPI Support" ](img/EditorPreferences.png)
+2. You may want to build clean for your project. Doing so will delete the precompiled binaries for the plugin. To recitify this copy the "Binary" and " Intermediate" folders from within the original plugin to your project's Plugin folder after making clean (or recopy the entire Plugin folder - if you prefer) 
+
 ## Summary
 
 Your final Project will look like the following:
@@ -35,5 +41,3 @@ SomeProjectPath/
 └─ MyProject.uproject	
 └─ MyProject.sln	
 ```
-
-# Note: This product is currently in Beta. 
