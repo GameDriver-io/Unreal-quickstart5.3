@@ -1,0 +1,776 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>gdio.unreal_api</name>
+    </assembly>
+    <members>
+        <member name="M:gdio.unreal_api.ApiClient.Connect(System.String,System.Int32,System.Int32)">
+            <summary>
+            Use this function to connect to an Unreal game with GameDriver Agent configured and active.  This function can connect to the unreal editor or a Standalone deployment of a game.
+            </summary>     
+            <param name="hostname"> The hostname of the machine running the game.</param>
+            <param name="port"> The configured port that the GameDriver agent is configured to use.</param>
+            <param name="timeout"> The amount of time in seconds to wait for connectivity to establish with the game.</param>
+            <example><code escaped="true">//Connects to a local instance of the Unreal editor with the default port of 15505 configured.
+            api.Connect("localhost");
+            
+            //Connects to an instance of Unreal running on the machine with IP address 10.0.0.2, port 15505, where the Unreal editor is already in Play mode
+            api.Connect("10.0.0.20", 15505, 60);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.ReConnect(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Use this function to disconnect and reconnect the API client to the Game. Useful after loading a new Scene when the agent is reloaded and requires reconnection.
+            </summary>
+            <param name="hostname"> The hostname of the machine running the game.</param>
+            <param name="delay"> How long to wait (milliseconds) before attempting to reconnect.,</param>
+            <param name="port"> The configured port that the GameDriver agent is configured to use.</param>
+            <param name="timeout"> The amount of time in seconds to wait for connectivity to establish with the game.</param>
+            <example><code escaped="true">//Reconnect after 5 seconds to a local instance of the Unreal editor with the default port of 15505 configured.
+            api.ReConnect("10.0.0.20", 5000, 15505, 60));</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.Disconnect">
+            <summary>
+            Use this function to disconnect the API client from the Game.
+            </summary>
+            <example><code escaped="true">api.Disconnect();</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.GetObjectPosition(System.String,gdio.common.objects.CoordinateConversion,System.String,System.Int32)">
+            <summary>
+            Return the position of a specific object.
+            </summary>
+            <param name="objectHierarchyPath">The HierarchyPath of the object to return the position of.</param>
+            <param name="cordSpace">The coorindate space conversion to perform on the position before returning it. See <see cref="T:gdio.common.objects.CoordinateConversion"/> for more information.</param>
+            <param name="cameraHierarchyPath"><i>Unused</i></param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> The Vector3 position of the specific object.</returns>
+            <example><code escaped="true"> // spot is set to the Vector3 value of the object position on screen
+            Vector3 spot = api.GetObjectPosition("//*[@name = 'Player1']",
+                CoordinateConversion.WorldToScreenPoint);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.GetObjectDistance(System.String,System.String,System.Int32)">
+            <summary>
+            This method returns the distance of two objects using vector subtraction.
+            </summary>
+            <param name="objectA_HierarchyPath">The HierarchyPath for the first UObject.</param>
+            <param name="objectB_HierarchyPath">The HierarchyPath for the second UObject.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> Returns the distance between the two objects as a float.</returns>
+            <example><code escaped="true">// CubeA.Transform = Vector3(1, 2, 3)
+            // CubeB.Transform = Vector3(6, 5, 4)
+            d = api.GetObjectDistance("//*[@name = 'CubeA']", "//*[@name = 'CubeB']");
+            Console.WriteLine(d.ToString()); // prints -5.0,-3.0,-1.0</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.GetObjectFieldValue``1(System.String,System.String,System.Int32)">
+            <summary>
+            This method returns the field or property value of an object.
+            </summary>
+            <typeparam name="T">The <see cref="T:System.Type"/> of the field or property to be inspected.</typeparam>
+            <param name="hierarchyPath">The HierarchyPath of the object and field/property to be inspected.</param>
+            <param name="fieldOrPropertyName">The field/property name to retreieve the value for/</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> Returns an object of type T for the value or throws an <see cref="T:System.Exception"/> on error.</returns>
+            <example> // Searches for an object named 'Player1' and gets the value of a integer field names <i>coin</i>
+            <code escaped="true">
+             int numCoins = api.GetObjectFieldValue&lt;int&gt;("/Player1", "coinCount");
+            Assert.IsTrue(coins > 0, "the player has no coins!"); //Passes if the Player object's "coin" field is > 0 </code> </example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.SetInputFieldText(System.String,System.String,System.Boolean,System.Int32)">
+            <summary>
+            Set the text of a TextBox or EditableText
+            </summary>
+            <param name="hierarchyPath">The HierarchyPath to the TextBox or EditableText</param>
+            <param name="value">The text value to set in the field.</param>
+            <param name="waitForObject">If TRUE, wait for the object to exist if it doesn't.</param>
+            <param name="timeout">The time to wait for the object to exist.</param>
+            <returns> TRUE if the GameDriver agent was able to successfully set the TextBox or EditableText text.</returns>
+            <example><code escaped="true">//Sets the TextBox component attached to the "TextMeshPro InputField" object with the tag "FilterInputTxt" to the value of "America"
+            api.SetInputFieldText("//FilterInputTxt[@name='TextMeshPro InputField']", "America");</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.SetObjectFieldValue(System.String,System.String,System.Object,System.Boolean,System.Int32)">
+            <summary>
+            Set the field or property of an object.
+            </summary>
+            <param name="hierarchyPath">The HierarchyPath to the object to set the field/property value.</param>
+            <param name="fieldOrPropertyName">The field or property name to set the value of.</param>
+            <param name="value">The value to set for the field/property.</param>
+            <param name="waitForObject">If TRUE, wait for the object to exist if it doesn't.</param>
+            <param name="timeout">The time to wait for the object to exist.</param>
+            <returns> TRUE if the field/property was successfully set to the value.</returns>
+            <example><code escaped="true">  // Change the vector object value "newVec" for the object named Player1
+                gdio.common.objects.Vector3 newLocation = new gdio.common.objects.Vector3(10000, 10000, 10000);
+             SetValue("//*[@tag='Player1']", "newVec", newLocation);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.RotateObject(System.String,gdio.common.objects.Quaternion,System.Boolean,System.Int32)">
+            <summary>
+            Rotate an object defined by the HierarchyPath and rotated by a Quaternion. <a href="https://scriptinghelpers.org/blog/how-to-think-about-quaternions"/> for more information.
+            </summary>
+            <param name="hierarchyPath">The HierarchyPath for the object to rotate.</param>
+            <param name="quaternion">The quaternion value to manipulate the object.</param>
+            <param name="waitForObject">Wait for the object to exist if it doesn't.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the method call was successfully processed by the GameDriver agent.</returns>
+            <example><code escaped="true">api.RotateObject("//*[@name='Cylinder']", new Quaternion(0, 0, 2, 2), true);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.RotateObject(System.String,gdio.common.objects.Vector3,gdio.common.objects.Space,System.Boolean,System.Int32)">
+            <summary>
+            Rotate an object defined by the HierarchyPath and rotated by Eulers. <a href="https://docs.unity3d.com/ScriptReference/Transform.Rotate.html"/> for more information.
+            </summary>
+            <param name="hierarchyPath">The HierarchyPath for the object to rotate.</param>
+            <param name="eulers">The Eulers vector to manipulate the object.</param>
+            <param name="relativeTo">The <see cref="T:gdio.common.objects.Space"/> to perform the rotation relative to.</param>
+            <param name="waitForObject">Wait for the object to exist if it doesn't.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the method call was successfully processed by the GameDriver agent.</returns>
+            <example><code escaped="true">//Rotates an object with the name "Cylinder" by 30 degrees on the y axis.
+            api.RotateObject("//*[@name='Cylinder']", new Vector3(0, 30, 0), Space.Self, true);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.RotateObject(System.String,System.Single,System.Single,System.Single,gdio.common.objects.Space,System.Boolean,System.Int32)">
+            <summary>
+            Rotate an object defined by the HierarchyPath and rotated by the x, y, and z angles relative to the Space
+            </summary>
+            <param name="hierarchyPath">The HierarchyPath for the object to rotate.</param>
+            <param name="xAngle">The X angle value to rotate.</param>
+            <param name="yAngle">The Y angle value to rotate.</param>
+            <param name="zAngle">The Z angle value to rotate.</param>
+            <param name="relativeTo">The <see cref="T:gdio.common.objects.Space"/> to perform the rotation relative to.</param>
+            <param name="waitForObject">Wait for the object to exist if it doesn't.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the method call was successfully processed by the GameDriver agent.</returns>
+            <example><code escaped="true">//Rotates an object with the name "Cylinder" by 20 degrees on the z axis
+            api.RotateObject("//*[@name='Cylinder']", 0, 0, 20);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.RotateObject(System.String,gdio.common.objects.Vector3,System.Single,gdio.common.objects.Space,System.Boolean,System.Int32)">
+            <summary>
+            Rotate an object defined by the HierarchyPath and rotated by the axis and angle, relative to the Space
+            </summary>
+            <param name="hierarchyPath">The HierarchyPath for the object to rotate.</param>
+            <param name="axis"></param>
+            <param name="angle"></param>
+            <param name="relativeTo">The <see cref="T:gdio.common.objects.Space"/> to perform the rotation relative to.</param>
+            <param name="waitForObject">Wait for the object to exist if it doesn't.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the method call was successfully processed by the GameDriver agent.</returns>
+            <example><code escaped="true">//Will rotate an object named "Cylinder" on all 3 axis by 45-degrees
+            api.RotateObject("//*[@name='Cylinder']", new Vector3(0, 0, 0), 45);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.GetLastFPS">
+            <summary>
+            This method returns the last frames per second that the API client has recieved from the GameDriver agent.
+            </summary>
+            <returns> The last published FPS as a double.</returns>
+            <example><code escaped="true">//Can be used as input for time-sensitive functions such as input.
+            //For example, this will press the Down key for roughly 1 second:
+            api.KeyPress(new KeyCode[] { KeyCode.DownArrow }, (ulong)api.GetLastFPS());
+            </code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.CallMethod(System.String,System.String,System.Object[],System.Int32)">
+            <summary>
+            Use this function to execute a <see cref="T:System.Void"/> method on an object.
+            </summary>        
+            <param name="hierarchyPath"> The HierarchyPath for the object that the script component is attached to.</param>        
+            <param name="methodName"> The name of the method to call. (must be visible to blueprints to be called) </param>
+            <param name="arguments"> An array of objects to pass as arguments to the method.</param>
+            <param name="timeout"> The number of seconds to wait for a response that the request was processed.</param>
+            <returns> Returns a boolean based on the successful execution of the return type void, method.</returns>
+            <example><code escaped="true"> // Call the "SetLightColor" (https://docs.unrealengine.com/5.0/en-US/BlueprintAPI/Rendering/Components/Light/SetLightColor/) method on a Light attached as a component to the Object named Player1
+               object[] lightTest = new object[2];
+               lightTest[0] = new gdio.common.objects.Color(1.0f, 1.0f, 0.0f, 1.0f); //the color
+               lightTest[1] = true; //the boolean for SRBG parameter
+               CallMethod&lt;Vector3&gt;("/Player1/fn:component('testLight')", "GetLightColor");</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.CallMethod``1(System.String,System.String,System.Object[],System.Int32)">
+            <summary>
+            Use this function to execute a method on an object.
+            </summary>
+            <param name="hierarchyPath"> The HierarchyPath for the object that the script component is attached to.</param>        
+            <param name="methodName"> The name of the method to call.</param>
+            <param name="arguments"> An array of objects to pass as arguments to the method.</param>
+            <param name="timeout"> The number of seconds to wait for a response that the request was processed.</param>
+            <returns> Returns a deserialized object of type T. If T and the type of the returned object don't match, an exception will be thrown.</returns>
+            <example>
+            <code escaped="true">
+            gdio.common.objects.Color  lightColor = api.CallMethod&lt;gdio.common.objects.Color&gt;("/ThirdPersonCharacter_167/fn:component('testLight')", "GetLightColor", null);
+            </code>
+            </example>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:gdio.unreal_api.ApiClient.Scroll(System.Single,System.Single,System.UInt64,System.Int32)" -->
+        <member name="M:gdio.unreal_api.ApiClient.KeyPress(gdio.unreal_api.KeyCode[],System.UInt64)">
+            
+            <summary>
+            Use this function to send arbitrary button states to the game. Defaults to LEFT ALT/CTRL/SHIFT/WINDOWS(COMMAND)
+            </summary>
+            <param name="key">A reference to Keycode enums representing the possible keyvalues.</param>
+            <param name="numberOfFrames">The number of frames to press and hold the keys for.</param>
+            <returns> TRUE if the GameDriver agent successfully processed the request.</returns>
+            <example><code escaped="true">//Send events for the common W,A keys, maybe as input to a player controller. 
+            api.KeyPress(new KeyCode[] { KeyCode.W }, 15);
+            api.Wait(300);
+            api.KeyPress(new KeyCode[] { KeyCode.A }, 15);
+            api.Wait(300);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.WaitForObject(System.String,System.Int32)">
+            <summary>
+            Wait for an object to exist.
+            </summary>
+            <param name="hierarchyPath">The HierarchyPath of the object.</param>
+            <param name="timeout">The amount of time to wait for the object to exist.</param>
+            <returns> TRUE if the object exists within the alloted timeout.</returns>
+            <example><code escaped="true">api.WaitForObject("//*[@name='Cube']"); //Waits for an object named "Cube" to exist</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.WaitForObjectValue(System.String,System.String,System.Object,System.Boolean,System.Int32)">
+            <summary>
+            Wait for an object to exist and have a specific value for a specified field/property.
+            </summary>
+            <param name="hierarchyPath">The HierarchyPath to the object.</param>
+            <param name="fieldOrPropertyName">The field/property name for inspection.</param>
+            <param name="value">The value to wait for.</param>
+            <param name="waitForObject">If TRUE, wait for the object to exist if it doesn't.</param>
+            <param name="timeout">The amount of time to wait for the object to exist with the specified value.</param>
+            <returns> TRUE if the object exists with the specified value in the alloted timeout.</returns>
+            <example><code escaped="true">//Waits for the value of the TextMeshProUGUI input field with the name "Text" to be "America"
+            api.WaitForObjectValue("//*[@name='Text']/fn:component('TMPro.TextMeshProUGUI')", "text", "America");</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.WaitForEmptyInput(System.Int32)">
+            <summary>
+            Wait for an Empty Input event to be received.
+            </summary>
+            <param name="timeout">The time to wait for the event.</param>
+            <returns></returns>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.GetSceneName(System.Int32)">
+            <summary>
+            Return the name of the current active scene.
+            </summary>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns>The name of the scene as a string.</returns>
+            <example><code escaped="true">string activeScene = api.GetSceneName();</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.LoadLevel(System.String,System.Int32)">
+            <summary>
+            This method loads the scene, defined by the scene name passed as an argument.
+            </summary>
+            <param name="sceneName">The name of the scene to load</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the request was successfully processed by the GameDriver agent.</returns>
+            <example><code escaped="true">//Loads the FinalBoss scene
+            api.LoadScene("FinalBoss");</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.Click(gdio.common.objects.MouseButtons,gdio.common.objects.Vector2,System.UInt64,System.Int32)">
+            <summary>
+            Use this function to perform in-game mouse-clicks.
+            </summary>        
+            <param name="buttonId"> The mouse button to use for the click operation.  See <see cref="T:gdio.common.objects.MouseButtons"/>.</param>            
+            <param name="position"> The <see cref="T:gdio.common.objects.Vector2"/> position to perform the mouse click.</param>
+            <param name="clickFrameCount"> The number of frames to click the specific position.</param>
+            <param name="timeout"> The number of seconds to wait for a response that the Click request was processed.  Input requests process asynchronously, so a response does NOT imply the input operation has completed.</param>
+            <example><code escaped="true">api.Click(MouseButtons.LEFT, new Vector2 (0, 0), 30, 30); //Clicks the left mouse button at 0,0 for 30 frames</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.Click(gdio.common.objects.MouseButtons,System.Single,System.Single,System.UInt64,System.Int32)">
+            <summary>
+            Use this function to perform in-game mouse-clicks.
+            </summary>        
+            <param name="buttonId"> The mouse button to use for the click operation.  See <see cref="T:gdio.common.objects.MouseButtons"/>.</param>            
+            <param name="x"> The X coordinate of the game to click in Screen space.</param>
+            <param name="y"> The Y coordinate of the game to click in Screen space.</param>
+            <param name="clickFrameCount"> The number of frames to click the specific position.</param>
+            <param name="timeout"> The number of seconds to wait for a response that the Click request was processed.  Input requests process asynchronously, so a response does NOT imply the input operation has completed.</param>
+            <example><code escaped="true">api.Click(MouseButtons.LEFT, 0, 0, 30, 30); //Clicks the left mouse button at 0,0 for 30 frames</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.ClickEx(gdio.common.objects.MouseButtons,gdio.common.objects.Vector2,System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,System.Int32,System.Int32)">
+            <summary>
+            Use this function to perform in-game mouse-clicks combined with key press operations.  The total frame count of this operation is clickFrameCount + keysNumberOfFrames + modifiersNumberOfFrames
+            </summary>        
+            <param name="buttonId"> The mouse button to use for the click operation.  See <see cref="T:gdio.common.objects.MouseButtons"/>.</param>           
+            <param name="position"> The <see cref="T:gdio.common.objects.Vector2"/> position to perform the mouse click.</param>
+            <param name="clickFrameCount"> The number of frames to click the specific position.</param>
+            <param name="keys"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> keys to press during the click operation.</param> 
+            <param name="keysNumberOfFrames"> The number of frames to press the keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
+            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> modifier keys to press during the click operation.</param>
+            <param name="modifiersNumberOfFrames">The number of frames to press the modifier keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
+            <param name="delayAfterModifiersMsec"> Total time in milliseconds to wait after pressing modifier keys, before clicking the object.  This is needed when a delay is required to register the modifier keys have been pressed in game.
+            If this delay is longer than that of the frame count for all of the key presses and click operations, the resulting behavior may not be what the user intends.</param>
+            <param name="timeout"> The number of seconds to wait for a response that the ClickEx request was processed.  Input requests process asynchronously, so a response does NOT imply the input operation has completed.</param>
+            <example><code escaped="true">//Clicks the left mouse button at 0,0 for 30 frames while holding the left-shift key for 3 frames, and the C key for 5 frames.
+            api.ClickEx(MouseButtons.LEFT, new Vector2(0, 0), 30, new KeyCode[] { KeyCode.C }, 5, new KeyCode[] { KeyCode.LeftShift }, 3, 500, 30);
+            </code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.ClickEx(gdio.common.objects.MouseButtons,System.Single,System.Single,System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,System.Int32,System.Int32)">
+            <summary>
+            Use this function to perform in game mouse-clicks combined with key press operations.  The total frame count execution of this operation is clickFrameCount + keysNumberOfFrames + modifiersNumberOfFrames.
+            </summary>        
+            <param name="buttonId"> The mouse button to use for the click operation.  See <see cref="T:gdio.common.objects.MouseButtons"/>.</param>        
+            <param name="x"> The X coordinate of the game to click in Screen space.</param>
+            <param name="y"> The Y coordinate of the game to click in Screen space.</param>
+            <param name="clickFrameCount"> The number of frames to click the specific position.</param>
+            <param name="keys"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> keys to press during the click operation.</param> 
+            <param name="keysNumberOfFrames"> The number of frames to press the keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
+            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> modifier keys to press during the click operation.</param>
+            <param name="modifiersNumberOfFrames">The number of frames to press the modifier keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
+            <param name="delayAfterModifiersMsec"> Total time in milliseconds to wait after pressing modifier keys, before clicking the object.  This is needed when a delay is required to register the modifier keys have been pressed in the game.
+            If this delay is longer than that of the frame count for all of the key presses and click operations, the resulting behavior may not be what the user intends.</param>
+            <param name="timeout"> The number of seconds to wait for a response that the ClickEx request was processed.  Input requests process asynchronously, so a response does NOT imply the input operation has completed.</param>
+            <example><code escaped="true">//Clicks the left mouse button at 0,0 for 30 frames while holding the left-shift key for 3 frames, and the C key for 5 frames.
+            api.ClickEx(MouseButtons.LEFT, 0, 0, 30,
+                new KeyCode[] { KeyCode.C }, 5,
+                new KeyCode[] { KeyCode.LeftShift }, 3,
+                500, 30);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.MouseDrag(gdio.common.objects.MouseButtons,gdio.common.objects.Vector2,System.UInt64,gdio.common.objects.Vector2,System.Boolean,System.Int32)">
+            <summary>
+            Perform a mouse drag operation.
+            </summary>
+            <param name="button">The mouse button, <see cref="T:gdio.common.objects.MouseButtons"/>, to perform the drag operation with.</param>
+            <param name="destination">The destination vector to drag the mouse to.</param>
+            <param name="frameCount">The number of frames taken to complete the drag operation.</param>
+            <param name="origin">The origin to start the drag operation.  If null, the mouse drag operation will begin at the current position of Input.mousePosition.</param>
+            <param name="waitForEmptyInput">Wait for the empty input event to be returned from the agent before returning from the method call.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent. If waitForEmptyInput is set to TRUE, then the method call will wait the timeout allotment to recieve the event.</param>
+            <returns> TRUE if the requests was successfully processed by the GameDriver agent.</returns>
+            <example><code escaped="true">//Drags the left mouse button to the position 180, 0 on the screen over 30 frames
+            api.MouseDrag(MouseButtons.LEFT, new Vector2(180, 0), 30, , true);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.MouseMoveToObject(System.String,System.UInt64,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Move the mouse to the center of a specific object, identified by the HierarchyPath.
+            </summary>
+            <param name="objectHierarchyPath">The HierarchyPath to move the mouse pointer to.</param>
+            <param name="frameCount">The number of frames to compelte the mouse move over.</param>
+            <param name="waitForObject">If TRUE, wait for the object to exist so that mouse move can complete successfully.</param>
+            <param name="waitForEmptyInput">Wait for the empty input event to be returned from the GameDriver agent, before returning from the method.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.  If waitForEmptyInput is TRUE, then the method call will wait the timeout alotment to recieve the event.</param>
+            <returns> TRUE if the method call was successfully processed by the GameDriver agent.</returns>
+            <example><code escaped="true">//Moves the mouse to the center of the object named "Cylinder" over 300 frames
+            api.MouseMoveToObject("//*[@name='Cylinder']", 300, true, true);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.MouseMoveToPoint(gdio.common.objects.Vector2,System.UInt64,gdio.common.objects.Vector2,System.Boolean,System.Int32)">
+             <summary>
+             Move the mouse to the destination vector.
+             </summary>
+             <param name="destination">Destination vector to move the mouse to.</param>
+             <param name="frameCount">The number of frames to complete the operaiton over.</param>
+             <param name="origin">The origin to start the mouse move operation.  If null, the mouse move operation will begin at the current position of Input.mousePosition.</param>
+             <param name="waitForEmptyInput">Wait for the empty input event to be returned from the GameDriver agent, before returning from the method.</param>
+             <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.  If waitForEmptyInput is TRUE, then the method call will wait the timeout alotment to recieve the event.</param>
+             <returns> TRUE if the method call was successfully processed by the GameDriver agent.</returns>
+             <example><code escaped="true">//First get the position of an object named "Cube" on screen
+             Vector3 cubePos = api.GetObjectPosition("//*[@name='Cube']", CoordinateConversion.WorldToScreenPoint);
+            
+             //Take the x,y values of the on-screen object
+             Vector2 cubePos2 = new Vector2(cubePos.x, cubePos.y);
+             
+             //Move the mouse to the cube on-screen position over 30 frames
+             api.MoveMouseToPoint(cubePos2, (ulong) api.GetLastFPS());</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.ClickObject(gdio.common.objects.MouseButtons,System.String,System.UInt64,System.String,System.Int32)">
+            <summary>
+            Use this function to interact with an in-game object using mouse-clicks.
+            </summary>        
+            <param name="buttonId"> The mouse button to use for the click operation.  See <see cref="T:gdio.common.objects.MouseButtons"/>.</param>               
+            <param name="hierarchyPath"> The HierarchyPath for the GameObject to perform a click on.</param>
+            <param name="frameCount"> The number of frames to click the specific object.</param>
+            <param name="cameraHierarchyPath"><i>Unused</i></param>
+            <param name="timeout"> The number of frames to hold the keys down before clicking. Total press frame count is keyFrames + frames.  Input requests process asynchronously, so a response does NOT imply the input operation has completed.</param>
+            <example><code escaped="true">//Locates and clicks the first object with the name "Cube" for 30 frames using the left mouse button.
+            api.ClickObject(MouseButtons.LEFT,
+                "//*[@name='Cube']", 30, 30);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.ClickObjectEx(gdio.common.objects.MouseButtons,System.String,System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,System.Int32,System.Int32)">
+            <summary>
+            Use this function to interact with an in-game object using mouse-clicks combined with key press operations.  The total frame count execution of this operation is clickFrameCount + keysNumberOfFrames + modifiersNumberOfFrames.
+            </summary>        
+            <param name="buttonId"> The mouse button to use for the click operation.  See <see cref="T:gdio.common.objects.MouseButtons"/>.</param>        
+            <param name="hierarchyPath"> The HierarchyPath for the GameObject to perform a click on.</param>
+            <param name="clickFrameCount"> The number of frames to click the specific object.</param>
+            <param name="cameraHierarchyPath"><i>Unused</i></param>
+            <param name="keys"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> keys to press during the click operation.</param> 
+            <param name="keysNumberOfFrames"> The number of frames to press the keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
+            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> modifier keys to press during the click operation.</param>
+            <param name="modifiersNumberOfFrames">The number of frames to press the modifier keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
+            <param name="delayAfterModifiersMsec"> Total time in milliseconds to wait after pressing modifier keys, before clicking the object.  This is needed when a delay is required to register the modifier keys have been pressed in the game.
+            If this delay is longer than that of the frame count for all of the key presses and click operations, the resulting behavior may not be what the user intends.</param>
+            <param name="timeout"> The number of seconds to wait for a response that the ClickObjectEx request was processed.  Input requests process asynchronously, so a response does NOT imply the input operation has completed.</param>
+            <example><code escaped="true">//Locates and clicks the first object with the name "Cube" for 30 frames with the left mouse button while holding the left-shift key for 3 frames, and the left-CTRL key for 5 frames.
+            api.ClickObjectEx(MouseButtons.LEFT,
+                "//*[@name='Cube']", 30,
+                new KeyCode[] { KeyCode.LeftControl }, 5,
+                new KeyCode[] { KeyCode.LeftShift }, 3,
+                500, 30);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.DoubleClick(gdio.common.objects.MouseButtons,gdio.common.objects.Vector2,System.UInt64,System.Int32)">
+            <summary>
+            Use this function to perform in-game mouse double-clicks.
+            </summary>        
+            <param name="buttonId"> The mouse button to use for the double click operation.  See <see cref="T:gdio.common.objects.MouseButtons"/>.</param>        
+            <param name="position"> The Vector2 location to double click in Screen space.</param>
+            <param name="clickFrameCount"> The number of frames to double click the specific position.</param>
+            <param name="timeout"> The number of seconds to wait for a response that the Click request was processed.  Input requests process asynchronously, so a response does NOT imply the input operation has completed.</param>
+            <example><code escaped="true">//Double-clicks the left mouse button at position 0, 0 on the screen over a duration of 30 frames.
+            api.DoubleClick(MouseButtons.LEFT, new Vector2(0, 0), 30, 30);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.DoubleClick(gdio.common.objects.MouseButtons,System.Single,System.Single,System.UInt64,System.Int32)">
+            <summary>
+            Use this function to perform in-game mouse double-clicks.
+            </summary>        
+            <param name="buttonId"> The mouse button to use for the double click operation.  See <see cref="T:gdio.common.objects.MouseButtons"/>.</param>        
+            <param name="x"> The X coordinate of the game to double click in Screen space.</param>
+            <param name="y"> The Y coordinate of the game to double click in Screen space.</param>
+            <param name="clickFrameCount"> The number of frames to click the specific location.</param>
+            <param name="timeout"> The number of seconds to wait for a response that the Click request was processed.  Input requests process asynchronously, so a response does NOT imply the input operation has completed.</param>
+            <example><code escaped="true">//Double-clicks the left mouse button at position 0, 0 on the screen over a duration of 30 frames.
+            api.DoubleClick(MouseButtons.LEFT, 0, 0, 30, 30);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.DoubleClickObject(gdio.common.objects.MouseButtons,System.String,System.UInt64,System.String,System.Int32)">
+            <summary>
+            Use this function to interact with an object in game using a mouse double-click.
+            </summary>        
+            <param name="buttonId"> The mouse button to use for the double click operation.  See <see cref="T:gdio.common.objects.MouseButtons"/>.</param>               
+            <param name="hierarchyPath"> The HierarchyPath for the GameObject to perform a double click on.</param>
+            <param name="frameCount"> The number of frames to double-click the specific object.</param>
+            <param name="cameraHierarchyPath"><i>Unused</i></param>
+            <param name="timeout"> The number of seconds to wait for a response that the DoubleClickObject request was processed.  Input requests process asynchronously, so a response does NOT imply the input operation has completed.</param>
+            <returns> TRUE if the GameDriver agent successfully processed the request.</returns>
+            <example><code escaped="true">//Locates and double-clicks the first object with the name "Cube" over a period of 30 frames using the left mouse button.
+            api.DoubleClickObject(MouseButtons.LEFT,
+                "//*[@name='Cube']", 30, 30);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.DoubleClickEx(gdio.common.objects.MouseButtons,gdio.common.objects.Vector2,System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,System.Int32,System.Int32)">
+            <summary>
+            Use this function to perform in game mouse double clicks combined with key press operations.  The total frame count execution of this operation is clickFrameCount + keysNumberOfFrames + modifiersNumberOfFrames
+            </summary>        
+            <param name="buttonId"> The mouse button to use for the click operation.  See <see cref="T:gdio.common.objects.MouseButtons"/>.</param>        
+            <param name="position"> The Vector2 position of where to double click in Screen space.</param>
+            <param name="clickFrameCount"> The number of frames to click the specific position.</param>
+            <param name="keys"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> keys to press during the click operation.</param> 
+            <param name="keysNumberOfFrames"> The number of frames to press the keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
+            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> modifier keys to press during the click operation.</param>
+            <param name="modifiersNumberOfFrames">The number of frames to press the modifier keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
+            <param name="delayAfterModifiersMsec"> Total time in milliseconds to wait after pressing modifier keys, before clicking the object.  This is needed when a delay is required to register the modifier keys have been pressed in the game.
+            If this delay is longer than the frame count for all the key presses and click operation that the behavior of the result may not be what the user intends.</param>
+            <param name="timeout"> The number of seconds to wait for a response that the ClickEx request was processed.  Input requests process asynchronously, so a response does NOT imply the input operation has completed.</param>
+            <returns> TRUE if the GameDriver agent successfully processed the request.</returns>
+            <example><code escaped="true">//Double-clicks the left mouse button at the position 0, 0 for 30 frames with the left mouse button while holding the left-shift key for 3 frames, and the left-CTRL key for 5 frames.
+            api.DoubleClickEx(MouseButtons.LEFT, new Vector2 (0, 0), 30,
+                new KeyCode[] { KeyCode.LeftControl }, 5,
+                new KeyCode[] { KeyCode.LeftShift }, 3,
+                500, 30);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.DoubleClickEx(gdio.common.objects.MouseButtons,System.Single,System.Single,System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,System.Int32,System.Int32)">
+            <summary>
+            Use this function to perform in game mouse double clicks combined with key press operations.  The total frame count execution of this operation is clickFrameCount + keysNumberOfFrames + modifiersNumberOfFrames
+            </summary>        
+            <param name="buttonId"> The mouse button to use for the click operation.  See <see cref="T:gdio.common.objects.MouseButtons"/>.</param>        
+            <param name="x"> The X coordinate of the game to double click in Screen space.</param>
+            <param name="y"> The Y coordinate of the game to double click in Screen space.</param>
+            <param name="clickFrameCount"> The number of frames to click the specific position.</param>
+            <param name="keys"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> keys to press during the click operation.</param> 
+            <param name="keysNumberOfFrames"> The number of frames to press the keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
+            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> modifier keys to press during the click operation.</param>
+            <param name="modifiersNumberOfFrames">The number of frames to press the modifier keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
+            <param name="delayAfterModifiersMsec"> Total time in milliseconds to wait after pressing modifier keys, before clicking the object.  This is needed when a delay is required to register the modifier keys have been pressed in the game.
+            If this delay is longer than the frame count for all the key presses and click operation that the behavior of the result may not be what the user intends.</param>
+            <param name="timeout"> The number of seconds to wait for a response that the ClickEx request was processed.  Input requests process asynchronously, so a response does NOT imply the input operation has completed.</param>
+            <returns> TRUE if the GameDriver agent successfully processed the request.</returns>
+            <example><code escaped="true">//Double-clicks the left mouse button at the position 0, 0 for 30 frames with the left mouse button while holding the left-shift key for 3 frames, and the left-CTRL key for 5 frames.
+            api.DoubleClickEx(MouseButtons.LEFT, 0, 0, 30,
+                new KeyCode[] { KeyCode.LeftControl }, 5,
+                new KeyCode[] { KeyCode.LeftShift }, 3,
+                500, 30);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.DoubleClickObjectEx(gdio.common.objects.MouseButtons,System.String,System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,System.Int32,System.Int32)">
+            <summary>
+            Use this function to interact with an object in game using a mouse double-click, combinated with key press operations.  The total frame count execution of this operation is clickFrameCount + keysNumberOfFrames + modifiersNumberOfFrames
+            </summary>        
+            <param name="buttonId"> The mouse button to use for the double click operation.  See <see cref="T:gdio.common.objects.MouseButtons"/>.</param>        
+            <param name="hierarchyPath"> The HierarchyPath for the GameObject to perform a double-click on.</param>
+            <param name="clickFrameCount"> The number of frames to double-click the specific object.</param>
+            <param name="cameraHierarchyPath"><i>Unused</i></param>
+            <param name="keys"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> keys to press during the click operation.</param> 
+            <param name="keysNumberOfFrames"> The number of frames to press the keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
+            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> modifier keys to press during the click operation.</param>
+            <param name="modifiersNumberOfFrames">The number of frames to press the modifier keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
+            <param name="delayAfterModifiersMsec"> Total time in milliseconds to wait after pressing modifier keys, before clicking the object.  This is needed when a delay is required to register the modifier keys have been pressed in the game.
+            If this delay is longer than the frame count for all the key presses and click operation that the behavior of the result may not be what the user intends.</param>
+            <param name="timeout"> The number of seconds to wait for a response that the DoubleClickObjectEx request was processed.  Input requests process asynchronously, so a response does NOT imply the input operation has completed.</param>
+            <returns> TRUE if the GameDriver agent successfully processed the request.</returns>
+            <example><code escaped="true">//Locates and clicks the first object with the name "Cube" for 30 frames with the left mouse button while holding the left-shift key for 3 frames, and the left-CTRL key for 5 frames.
+            api.DoubleClickObjectEx(MouseButtons.LEFT,
+                "//*[@name='Cube']", 30,
+                new KeyCode[] { KeyCode.LeftControl }, 5,
+                new KeyCode[] { KeyCode.LeftShift }, 3,
+                500, 30);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.KeyPress(gdio.unreal_api.KeyCode[],System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,System.Int32,System.Int32)">
+            
+            <summary>
+            Use this function to send arbitrary button states to the game. Defaults to LEFT ALT/CTRL/SHIFT/WINDOWS(COMMAND)
+            </summary>
+            <param name="keys">An array of keys(<see cref="T:gdio.unreal_api.KeyCode"/>) to press.</param>
+            <param name="numberOfFrames">The number of frames to press and hold the keys for.</param>
+            <param name="modifiers">An array of modifiers()<see cref="T:gdio.unreal_api.KeyCode"/> to press.</param>
+            <param name="modifierNumberOfFrames">The number of frames to hold the modifiers down for, before pressing the keys.</param>
+            <param name="delayAfterModifiersMsec">The delay to wait between holding the modifies and pressing the keys.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the GameDriver agent successfully processed the request.</returns>
+            <example><code escaped="true">//Press the down, left, up, then right keys in sequence
+            api.KeyPress(new KeyCode[] { KeyCode.DownArrow}, 100);
+            api.Wait(300);
+            api.KeyPress(new KeyCode[] { KeyCode.LeftArrow}, 100);
+            api.Wait(300);
+            api.KeyPress(new KeyCode[] { KeyCode.UpArrow }, 100);
+            api.Wait(300);
+            api.KeyPress(new KeyCode[] { KeyCode.RightArrow }, 100);
+            api.Wait(3000);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.CaptureScreenshot(System.String,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Use this function to capture a screenshot of the Game under test.
+            </summary>        
+            <param name="filename"> The filename, and path, of the screen capture.</param>        
+            <param name="storeInGameFolder"> If true, this won't transfer the screen capture back to the client and instead will save it on the device where the game is running.</param>
+            <param name="overwriteExisting"> If true, the operation will overwrite the file if it already exists.</param>
+            <param name="timeout"> The number of seconds to wait for a response that the CaptureScreenshot request was processed.</param>
+            <example><code escaped="true">api.CaptureScreenshot(@"c:\temp\screen1.png", false, true);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.Raycast(gdio.common.objects.Vector3,System.String,System.Int32)">
+             <summary>
+             Perform a Raycast to a point to find out what is in that position.
+             </summary>
+             <param name="raycastPoint">The vector to perform a raycast to.</param>
+             <param name="cameraHierarchyPath"><i>Unused</i></param>
+             <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+             <returns> Returns an array of <see cref="T:gdio.common.objects.RaycastResult"/>.</returns>
+             <example><code escaped="true">// Racast to an object named "Ellen"
+             RaycastResult[] rr = api.Raycast(api.GetObjectPosition("//*[@name='Ellen']"));
+             
+             foreach (var res in rr)
+             {
+                 Console.WriteLine(res);
+             }
+            
+             // Output
+             // [RaycastResult]
+             // Type: Physics
+             // Tag: Untagged
+             // Name: Plane
+             // HasButton: False
+             // Point: (-5.217863, 0, -0.5770187)
+             // Type Name: UnityEngine.GameObject
+             
+             </code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.NavAgentMoveToPoint(System.String,gdio.common.objects.Vector3,System.Boolean,System.Int32)">
+            <summary>
+            Move a NavAgent to a destination point.
+            </summary>
+            <param name="navAgentHierarchyPath">The HierarchyPath to the NavAgent.</param>
+            <param name="destination">The destination vector to move to.</param>
+            <param name="waitForMoveToComplete">Wait for the NavAgent move-to operation to complete before the method returns.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the method call was successfully processed by the GameDriver agent.</returns>
+            <example><code escaped="true">//Moves the 1st object named "Ellen" to position 20, 0, 20 on the NavMesh
+            api.NavAgentMoveToPoint("//*[@name='Ellen']", new Vector3(20, 0, 20));</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.TouchInput(gdio.common.objects.Vector2,gdio.common.objects.Vector2,System.Int32,System.Int32,System.UInt64,System.Boolean,System.Single,System.Single,System.Single,System.Single,System.Single,System.Int32)">
+            <summary>
+            Send a raw TouchInput event to the game.
+            </summary>
+            <param name="startPosition">Vector position of the start of the touch input.</param>
+            <param name="destinationPosition">Vector destination position of where the touch input ends.</param>
+            <param name="fingerId">The finder id of the touch input.</param>
+            <param name="tapCount">The number of taps that should be registered.</param>
+            <param name="frameCount">The number of frames to complete the tap input over.</param>
+            <param name="waitForEmptyInput">If TRUE, wait for the Empty Input event to be broadcast before returning from the method.</param>
+            <param name="radius">The radius of the touch input.</param>
+            <param name="pressure">The pressure of the touch input.</param>
+            <param name="altitudeAngle">The altitude angle of the touch input.</param>
+            <param name="azmulthAngle">The azimuth angle of the touch input.</param>
+            <param name="maximumPossiblePressure">The maximum possible pressure for the touch input.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the GameDriver agent was able to process the request successfully.</returns>
+            <example><code escaped="true">//Performs a single touch input from 0,0 to 100, 100 with a single "finger" over a duration of 50 frames
+            api.TouchInput(new Vector2(0, 0), new Vector2(100, 100), 0, 1, 50);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.TouchInput(System.Single,System.Single,System.Single,System.Single,System.Int32,System.Int32,System.UInt64,System.Boolean,System.Single,System.Single,System.Single,System.Single,System.Single,System.Int32)">
+            <summary>
+            Send a raw TouchInput event to the game.
+            </summary>
+            <param name="x1">The X coordinate of the start position.</param>
+            <param name="y1">The Y coordinate of the start position.</param>
+            <param name="x2">The X coordinate of the end position.</param>
+            <param name="y2">The Y coordinate of the end position.</param>
+            <param name="fingerId">The finder id of the touch input.</param>
+            <param name="tapCount">The number of taps that should be registered.</param>
+            <param name="frameCount">The number of frames to complete the tap input over.</param>
+            <param name="waitForEmptyInput">If TRUE, wait for the Empty Input event to be broadcast before returning from the method.</param>
+            <param name="radius">The radius of the touch input.</param>
+            <param name="pressure">The pressure of the touch input.</param>
+            <param name="altitudeAngle">The altitude angle of the touch input.</param>
+            <param name="azmulthAngle">The azmulth ange of the touch input.</param>
+            <param name="maximumPossiblePressure">The maximum possible pressure for the touch input.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the GameDriver agent was able to process the request successfully.</returns>
+            <example><code escaped="true">//Performs a single touch input from 0,0 to 100, 100 with a single "finger" over a duration of 50 frames
+            api.TouchInput(0, 0, 100, 100, 0, 1, 50);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.Tap(gdio.common.objects.Vector2,System.Int32,System.UInt64,System.Int32)">
+            <summary>
+            Tap the handheld device at the defined position.
+            </summary>
+            <param name="position">The vector position to tap the device screen.</param>
+            <param name="tapCount">The number of taps that should be registered.</param>
+            <param name="frameCount">The number of frames to complete the tap input over.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the GameDriver agent was able to process the request successfully.</returns>
+            <example><code escaped="true">//Performs a single tap at position 0, 0 for 10 frames
+            api.Tap(new Vector2(0, 0), 1, 10); </code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.Tap(System.Single,System.Single,System.Int32,System.UInt64,System.Int32)">
+            <summary>
+            Tap the handheld device at the defined position.
+            </summary>
+            <param name="x">The X coordinate of the position to tap the device screen.</param>
+            <param name="y">The Y coordinate position to tap the device screen.</param>
+            <param name="tapCount">The number of taps that should be registered.</param>
+            <param name="frameCount">The number of frames to complete the tap input over.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the GameDriver agent was able to process the request successfully.</returns>
+            <example><code escaped="true">//Performs a single tap at position 0, 0 for 10 frames
+            api.Tap(0, 0, 1, 10);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.TapObject(System.String,System.Int32,System.UInt64,System.String,System.Int32)">
+            <summary>
+            Tap an object.
+            </summary>
+            <param name="hierarchyPath">The HierarchyPath of the object to tap.</param>
+            <param name="tapCount">The number of taps that should be registered.</param>
+            <param name="frameCount">The number of frames to complete the tap input over.</param>
+            <param name="cameraHierarchyPath">The HierarchyPath to the Camera rendering the object.  An empty string uses Camera.main</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the GameDriver agent was able to process the request successfully.</returns>
+            <example><code escaped="true">//Performs a single tap on an object with the name "Cube"
+            api.TapObject("//*[@name='Cube']", 1, 10);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.GetObjectList(System.Boolean,System.Int32)">
+             <summary>
+             This method returns of a list of all GameObjects as returned by <see cref="!:UnityEngine.GameObject.FindObjectsOfType(Type)"/>, where Type is UnityEngine.GameObject./>
+             </summary>
+             <param name="includeHPath">Generate full path for GameObjects</param>
+             <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+             <returns> This method returns a <see cref="T:System.Collections.IList"/> of <see cref="T:gdio.common.objects.LiteGameObject"/>.  LiteGameObject is a slimmer representation of UnityEngine.GameObject</returns>
+             <example> //Print a list of the scene objects
+             <code escaped="true">
+             System.Collections.Generic.List&lt;LiteGameObject&gt; objects = api.GetObjectList();
+            
+             //Test whether the list is null
+             Assert.IsNotNull(objects, "GetObjectList failed!");
+            
+             //Print a full object list
+             foreach (var obj in objects)
+             {
+                 Console.WriteLine("Object Name: " + obj.Name);
+                 Console.WriteLine("Object Tag: " + obj.Tag);
+                 Console.WriteLine("Object Position: " + obj.Position);
+                 Console.WriteLine($"Object Rotation (w): {obj.Rotation.w}, (x): {obj.Rotation.x}, (y): {obj.Rotation.x}, (z): {obj.Rotation.z}");
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.GetObjectList(System.String,System.Boolean,System.Int32)">
+             <summary>
+             This method returns of a list of all GameObjects as returned by <see cref="!:UnityEngine.GameObject.FindObjectsOfType(Type)"/>, where Type is UnityEngine.GameObject./>
+             </summary>
+             <param name="hierarchyPath">HierarchyPath of objects to be returned</param>
+             <param name="includeHPath">Generate full path for GameObjects</param>
+             <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+             <returns> This method returns a <see cref="T:System.Collections.IList"/> of <see cref="T:gdio.common.objects.LiteGameObject"/>.  LiteGameObject is a slimmer representation of UnityEngine.GameObject</returns>
+             <example> //Print a list of the scene objects
+             <code escaped="true">
+             System.Collections.Generic.List&lt;LiteGameObject&gt; objects = api.GetObjectList();
+            
+             //Test whether the list is null
+             Assert.IsNotNull(objects, "GetObjectList failed!");
+            
+             //Print a full object list
+             foreach (var obj in objects)
+             {
+                 Console.WriteLine("Object Name: " + obj.Name);
+                 Console.WriteLine("Object Tag: " + obj.Tag);
+                 Console.WriteLine("Object Position: " + obj.Position);
+                 Console.WriteLine($"Object Rotation (w): {obj.Rotation.w}, (x): {obj.Rotation.x}, (y): {obj.Rotation.x}, (z): {obj.Rotation.z}");
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.GetGameObject(System.String,System.Int32)">
+            <summary>
+            Get the UObject that evaluates from the provided HierarchyPath argument.
+            </summary>
+            <param name="hierarchyPath"> The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <param name="timeout"> The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> The matching UObject, if it exists.</returns>
+            <example><code escaped="true">api.GetGameObject("//*[@name='MyObject']")</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.SetTimescale(System.Single,System.Int32)">
+            <summary>
+            Use this function to set the play speed of the game. Can be used to speed up or slow down the game in order to improve test execution time. (https://docs.unity3d.com/ScriptReference/Time-timeScale.html)
+            </summary>
+            <param name="val"> The coefficient of time.</param>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.EnableObjectCaching(System.Int32)">
+            <summary>
+            Enable the use of object caching when performing HierarchyPath object resolution.  Object caching is per HierarchyPath stored in a <see cref="T:System.Collections.IDictionary" />. If a matching HierarchyPath is already in the dictionary, then the stored object is returned.
+            The only way to update a cached reference is for the reference to be garbage collected or flush the cache with <see cref="M:gdio.unreal_api.ApiClient.FlushObjectLookupCache(System.Int32)"/>.
+            </summary>
+            <param name="timeout"> The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the GameDriver agent successfully processed the request.</returns>
+            <example><code escaped="true">api.EnableObjectCaching();</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.DisableObjectCaching(System.Int32)">
+            <summary>
+            Disable the use of object caching when doing HierarchyPath object resolution.
+            </summary>
+            <param name="timeout"> The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the GameDriver agent successfully processed the request.</returns>
+            <example><code escaped="true">api.DisableObjectCaching();</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.FlushObjectLookupCache(System.Int32)">
+            <summary>
+            If object caching is enabled, this method will request that the agent flush the cache being held for all object lookups. 
+            </summary>
+            <param name="timeout"> The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the GameDriver agent successfully processed the request.</returns>
+            <example><code escaped="true">api.FlushObjectLookupCache();</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.RegisterCollisionMonitor(System.String,gdio.common.objects.UNREAL_HIT_EVENT,System.Int32)">
+            <summary>
+            Register a collision monitor to recieve collision events on an object.
+            </summary>
+            <param name="hierarchyPath">The HierarchyPath for the object to rotate.</param>
+            /// <param name="type">Type of hit (0 hit, 1 overlap, 2 overlapend)</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> String returned is the event identifier</returns>
+            <example><code escaped="true">api.RegisterUnrealCollisionMonitor("//*[@name='Cylinder']");</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.WaitForCollisionEvent(System.String,System.Int32)">
+            <summary>
+            Wait for a collision event to fire on an element that is being monitored for collisions. If the method has been called before, there is the potential that another event was recieved before waiting on the event again.  
+            </summary>
+            <param name="eventId">The eventId received from the <see cref="!:RegisterCollisionMonitor(string, int)"/> call.</param>
+            <param name="timeout">The number of seconds to wait for a collision event to be fired.</param>
+            <returns>The <see cref="T:gdio.common.objects.Collision"/> contains information about the collision.  NULL is returned if the request timesout.</returns>
+            <example><code escaped="true">api.WaitForCollisionEvent{object}(eventId);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.UnregisterCollisionMonitor(System.String,System.Int32)">
+            <summary>
+            Unregister the monitoring of collision events on a GameObject that has been previously registered for monitoring.
+            </summary>
+            <param name="id">The id retunred when creating the collision listener. </param>
+            <param name="timeout"></param>
+        </member>
+        <member name="T:gdio.unreal_api.KeyCode">
+            
+             <summary>Key codes returned by Event keyCode. Based on EKeys from UnrealEngine</summary>
+            
+        </member>
+    </members>
+</doc>
