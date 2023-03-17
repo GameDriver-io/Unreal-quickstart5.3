@@ -1,11 +1,13 @@
 #pragma once
 
+#include "UnrealCLR.h"
 #include "UnrealCLRFramework.h"
 #include <Runtime/Engine/Public/EngineUtils.h>
 #include <Runtime/Engine/Public/ActorEditorUtils.h>
 #include <Runtime/Engine/Public/LevelUtils.h>
 #include <Runtime/Engine/Classes/Kismet/GameplayStatics.h>
 #include "Animation/AnimSequence.h"
+#include <ARBlueprintLibrary.h>
 ///////////////////GDIO
 #if PLATFORM_WINDOWS
 #define GDIO_EXPORT extern "C" __declspec(dllexport)
@@ -39,11 +41,12 @@ namespace UnrealCLR {
 	UNREALCLR_API const FKey* getEKeyForIntValue(int val);
 	UNREALCLR_API const int getEKeyIntValue(FKey val);
 
-	
+	SWidget* lastHandler = NULL;
 }
 
 namespace GDIO_World {
 	GDIO_EXPORT bool GDIO_SetupEditor(char* hPathBuffer, char* returnBuffer, char* errorBuffer, char* operation, char* type, char* stack, int32* hpathState, int32* returnState, double* duration);
 
 }
+
 ///////////////////GDIO

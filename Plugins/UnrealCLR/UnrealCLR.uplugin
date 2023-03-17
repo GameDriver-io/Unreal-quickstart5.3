@@ -1,7 +1,7 @@
 {
 	"FileVersion": 1,
 	"Version": 1,
-	"VersionName": "1.0",
+	"VersionName": "1.1",
 	"FriendlyName": "GameDriver.io",
 	"Description": "GameDriver gives the tester unlimited control over the Unreal engine.  This plugin allows testing your Unreal projects from outside Unreal and within the editor. Simulate input, interact with the world and verify properties for unprecedented access and control over the game's inner workings.",
 	"Category": "Scripting",
@@ -12,9 +12,9 @@
 	"SupportURL": "",
 	"EnabledByDefault": true,
 	"CanContainContent": true,
-	"IsBetaVersion": true,
+	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
-	"Installed": true,
+	"Installed": false,
 	"Modules": [
 		{
 			"Name": "UnrealCLR",

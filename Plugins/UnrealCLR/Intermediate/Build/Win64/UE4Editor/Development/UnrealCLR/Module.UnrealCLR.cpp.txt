@@ -2,10 +2,83 @@ E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4E
 E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/AGDIO_OverlapHit.cpp
 E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Public\AGDIO_OverlapHit.h
 E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Inc\UnrealCLR\AGDIO_OverlapHit.generated.h
-E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/GDIOGUI.cpp
-E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Private\../Public/GDIOGUI.h
-E:\UE_4.27\Engine\Source\Runtime\Slate\Public\Widgets/SCanvas.h
-E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR/Public/UnrealCLR.h
+E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/FGdioHMD.cpp
+E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Public\FGdioHMD.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\HeadMountedDisplayBase.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\IHeadMountedDisplay.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\HeadMountedDisplayTypes.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\IMotionController.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\HeadMountedDisplay\HeadMountedDisplayTypes.generated.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\LateUpdateManager.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\XRTrackingSystemBase.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\IXRTrackingSystem.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\IIdentifiableXRDevice.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\HeadMountedDisplay\IIdentifiableXRDevice.generated.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\IXRInput.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\XRGestureConfig.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\HeadMountedDisplay\XRGestureConfig.generated.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\IXRCamera.h
+E:\UE_4.27\Engine\Source\Runtime\AugmentedReality\Public\ARSupportInterface.h
+E:\UE_4.27\Engine\Source\Runtime\AugmentedReality\Public\ARTypes.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AugmentedReality\ARTypes.generated.h
+E:\UE_4.27\Engine\Source\Runtime\AugmentedReality\Public\ARSessionConfig.h
+E:\UE_4.27\Engine\Source\Runtime\AugmentedReality\Public\ARTrackable.h
+E:\UE_4.27\Engine\Source\Runtime\AugmentedReality\Public\ARComponent.h
+E:\UE_4.27\Engine\Source\Runtime\MRMesh\Public\MRMeshBufferDefines.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AugmentedReality\ARComponent.generated.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AugmentedReality\ARTrackable.generated.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AugmentedReality\ARSessionConfig.generated.h
+E:\UE_4.27\Engine\Source\Runtime\AugmentedReality\Public\ARTextures.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/TextureCube.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\TextureCube.generated.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AugmentedReality\ARTextures.generated.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\DefaultSpectatorScreenController.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\ISpectatorScreenController.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Public\SceneViewExtension.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Public\SceneViewExtensionContext.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SceneViewExtensionContext.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/InputComponent.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\InputComponent.generated.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\IMotionTrackingSystemManagement.h
+E:\UE_4.27\Engine\Source\Runtime\ApplicationCore\Public\GenericPlatform/IInputInterface.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\MotionControllerComponent.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\HeadMountedDisplay\MotionControllerComponent.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/PlayerController.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/OnlineReplStructs.h
+E:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/CoreOnline.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\OnlineReplStructs.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/PlayerMuteList.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlayerMuteList.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Camera/PlayerCameraManager.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlayerCameraManager.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/ForceFeedbackEffect.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ForceFeedbackEffect.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/UpdateLevelVisibilityLevelInfo.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\UpdateLevelVisibilityLevelInfo.generated.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlayerController.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/LocalPlayer.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/Player.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Player.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Public\Subsystems/LocalPlayerSubsystem.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\LocalPlayerSubsystem.generated.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\LocalPlayer.generated.h
+E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Public\ISimpleHMDPlugin.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\IHeadMountedDisplayModule.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/WorldSettings.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/DamageType.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DamageType.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Info.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Info.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Sound/AudioVolume.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Volume.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Volume.generated.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Sound\ReverbSettings.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ReverbSettings.generated.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AudioVolume.generated.h
+E:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/ConstructorHelpers.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\WorldSettings.generated.h
+E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Public\UnrealCLRFrameworkEx.h
+E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Public\UnrealCLR.h
 E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Public\../../Dependencies/CoreCLR/includes/coreclr_delegates.h
 E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Public\../../Dependencies/CoreCLR/includes/hostfxr.h
 E:\UE_4.27\Engine\Source\Runtime\AIModule\Classes\AIController.h
@@ -101,8 +174,6 @@ E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\LightComponent.g
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DirectionalLightComponent.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/HierarchicalInstancedStaticMeshComponent.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\HierarchicalInstancedStaticMeshComponent.generated.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/InputComponent.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\InputComponent.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/PostProcessComponent.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Interfaces/Interface_PostProcessVolume.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Interface_PostProcessVolume.generated.h
@@ -130,13 +201,9 @@ E:\UE_4.27\Engine\Source\Runtime/MovieSceneCapture/Public/MovieSceneCaptureHandl
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameEngine.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/LevelScriptActor.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\LevelScriptActor.generated.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/Player.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Player.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/PointLight.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PointLight.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/PostProcessVolume.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Volume.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Volume.generated.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PostProcessVolume.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/RectLight.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RectLight.generated.h
@@ -154,17 +221,6 @@ E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/TriggerVolume.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\TriggerVolume.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Public\EngineUtils.h
 E:\UE_4.27\Engine\Source\Runtime\Core\Public\ProfilingDebugging/ProfilingHelpers.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/WorldSettings.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/DamageType.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DamageType.generated.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Info.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Info.generated.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Sound/AudioVolume.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Sound\ReverbSettings.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ReverbSettings.generated.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AudioVolume.generated.h
-E:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/ConstructorHelpers.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\WorldSettings.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
@@ -174,20 +230,6 @@ E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.genera
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
-E:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/CoreOnline.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/PlayerController.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/OnlineReplStructs.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\OnlineReplStructs.generated.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/PlayerMuteList.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlayerMuteList.generated.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Camera/PlayerCameraManager.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlayerCameraManager.generated.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/ForceFeedbackEffect.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ForceFeedbackEffect.generated.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/UpdateLevelVisibilityLevelInfo.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\UpdateLevelVisibilityLevelInfo.generated.h
-E:\UE_4.27\Engine\Source\Runtime\ApplicationCore\Public\GenericPlatform/IInputInterface.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlayerController.generated.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/PlayerInput.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Public\GestureRecognizer.h
@@ -198,13 +240,6 @@ E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RotatingMovement
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/SpringArmComponent.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h
 E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\HeadMountedDisplayFunctionLibrary.h
-E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\HeadMountedDisplayTypes.h
-E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\IMotionController.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\HeadMountedDisplay\HeadMountedDisplayTypes.generated.h
-E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\IIdentifiableXRDevice.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\HeadMountedDisplay\IIdentifiableXRDevice.generated.h
-E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\XRGestureConfig.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\HeadMountedDisplay\XRGestureConfig.generated.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\HeadMountedDisplay\HeadMountedDisplayFunctionLibrary.generated.h
 E:\UE_4.27\Engine\Source\Runtime\AssetRegistry\Public\IAssetRegistry.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Public\ImageUtils.h
@@ -216,12 +251,6 @@ E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\MaterialInstance
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\MaterialInstanceDynamic.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Core\Public\Misc/DefaultValueHelper.h
 E:\UE_4.27\Engine\Source\Runtime\Core\Public\Misc/OutputDeviceNull.h
-E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\MotionControllerComponent.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Public\SceneViewExtension.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Public\SceneViewExtensionContext.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SceneViewExtensionContext.generated.h
-E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\LateUpdateManager.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\HeadMountedDisplay\MotionControllerComponent.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\PhysicsEngine/RadialForceComponent.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RadialForceComponent.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Sound/AmbientSound.h
@@ -233,7 +262,6 @@ E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Public\Unrea
 E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Intermediate\Build\Win64\UE4Editor\Inc\UnrealCLR\UnrealCLRManager.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Slate\Public\Framework/Notifications/NotificationManager.h
 E:\UE_4.27\Engine\Source\Runtime\Slate\Public\Widgets/Notifications/SNotificationList.h
-E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR/Public/UnrealCLRFrameworkEx.h
 E:\UE_4.27\Engine\Source\Runtime/Engine/Public/ActorEditorUtils.h
 E:\UE_4.27\Engine\Source\Runtime/Engine/Public/LevelUtils.h
 E:\UE_4.27\Engine\Source\Runtime/Engine/Classes/Kismet/GameplayStatics.h
@@ -245,8 +273,18 @@ E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DialogueTypes.ge
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet\GameplayStaticsTypes.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStaticsTypes.generated.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStatics.generated.h
-E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/GDIOInput.cpp
-E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Public\GDIOInput.h
+E:\UE_4.27\Engine\Source\Runtime\AugmentedReality\Public\ARBlueprintLibrary.h
+E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/BlueprintAsyncActionBase.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BlueprintAsyncActionBase.generated.h
+E:\UE_4.27\Engine\Source\Runtime\AugmentedReality\Public\ARSystem.h
+E:\UE_4.27\Engine\Source\Runtime\AugmentedReality\Public\ARTraceResult.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AugmentedReality\ARTraceResult.generated.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AugmentedReality\ARBlueprintLibrary.generated.h
+E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/GDIOGUI.cpp
+E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Private\../Public/GDIOGUI.h
+E:\UE_4.27\Engine\Source\Runtime\Slate\Public\Widgets/SCanvas.h
+E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/GDIOInputPreprocessor.cpp
+E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Public\GDIOInputPreprocessor.h
 E:\UE_4.27\Engine\Source\Runtime\Slate\Public\Framework/Application/IInputProcessor.h
 E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/UHitListener.cpp
 E:\Packing\UnrealCLR\HostProject\Plugins\UnrealCLR\Source\UnrealCLR\Public\UHitListener.h
@@ -720,10 +758,6 @@ E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/TwitterIntegrationBase.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\TwitterIntegrationBase.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/PlatformInterfaceWebResponse.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlatformInterfaceWebResponse.generated.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/LocalPlayer.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Public\Subsystems/LocalPlayerSubsystem.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\LocalPlayerSubsystem.generated.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\LocalPlayer.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/NetConnection.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Public\Net/NetPacketNotify.h
 E:\UE_4.27\Engine\Source\Runtime\Net\Core\Public\Net/Core/Misc/ResizableCircularQueue.h
@@ -779,8 +813,6 @@ E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/ShadowMapTexture2D.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShadowMapTexture2D.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/Texture2DDynamic.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Texture2DDynamic.generated.h
-E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/TextureCube.h
-E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\TextureCube.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/TextureRenderTarget.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\TextureRenderTarget.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/TextureRenderTarget2D.h
@@ -880,18 +912,17 @@ E:\UE_4.27\Engine\Source\Runtime\Slate\Public\Widgets/Views/STileView.h
 E:\UE_4.27\Engine\Source\Runtime\Slate\Public\Widgets/Layout/SScrollBox.h
 E:\UE_4.27\Engine\Source\Runtime\Slate\Public\Widgets/Colors/SColorBlock.h
 E:\UE_4.27\Engine\Source\Runtime\Slate\Public\Widgets/Input/SSpinBox.h
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\limits
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\cfloat
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\cwchar
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\cstdio
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\isa_availability.h
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\limits
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\cfloat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\cwchar
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\cstdio
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\isa_availability.h
 E:\UE_4.27\Engine\Source\Runtime\Slate\Public\Widgets/Input/SSlider.h
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\string
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\xstring
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\iosfwd
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\xmemory
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\xutility
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\cctype
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\string
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\xstring
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\iosfwd
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\xmemory
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\cctype
 E:\UE_4.27\Engine\Source\Runtime/UMG/Public/UMG.h
 E:\UE_4.27\Engine\Source\Runtime\Core\Public\Misc/MonolithicHeaderBoilerplate.h
 E:\UE_4.27\Engine\Source\Runtime\Slate\Public\Widgets/Layout/Anchors.h
@@ -1236,15 +1267,15 @@ E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AITask.generat
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AITask_MoveTo.generated.h
 E:\UE_4.27\Engine\Source\Runtime\AIModule\Classes\Blueprint/AIBlueprintHelperLibrary.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AIModule\AIBlueprintHelperLibrary.generated.h
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\chrono
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\__msvc_chrono.hpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\ratio
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\thread
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\memory
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\chrono
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\__msvc_chrono.hpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\ratio
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\thread
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\memory
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\process.h
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\corecrt_startup.h
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\math.h
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\INCLUDE\vcruntime_startup.h
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\vcruntime_startup.h
 E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/UnrealCLR.cpp
 E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/UnrealCLRFramework.cpp
 E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/UnrealCLRFrameworkEx.cpp
@@ -1254,6 +1285,8 @@ E:\UE_4.27\Engine\Source\Runtime\UMG\Public\Blueprint/SlateBlueprintLibrary.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\SlateBlueprintLibrary.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/UserInterfaceSettings.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\UserInterfaceSettings.generated.h
+E:\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\MotionTrackedDeviceFunctionLibrary.h
+E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\HeadMountedDisplay\MotionTrackedDeviceFunctionLibrary.generated.h
 E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/UnrealCLRLibrary.cpp
 E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/UnrealCLRManager.cpp
 E:/Packing/UnrealCLR/HostProject/Plugins/UnrealCLR/Source/UnrealCLR/Private/UscreenGrabber.cpp

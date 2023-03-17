@@ -12,11 +12,11 @@ public class HPathDebugger : ModuleRules {
 
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
-            		bUsePrecompiled = true;
+         	bUsePrecompiled = true;
 
         OptimizeCode = CodeOptimization.Never;
         
-        PrecompileForTargets = PrecompileTargetsType.Any;
+       // PrecompileForTargets = PrecompileTargetsType.Any;
 
         PublicIncludePaths.AddRange(new string[] { Path.Combine(ModuleDirectory, "Public") });
 
@@ -24,7 +24,7 @@ public class HPathDebugger : ModuleRules {
 
         
         PublicDependencyModuleNames.AddRange(new string[] {
-			"Core", "UnrealCLR"
+			"Core", "UnrealCLR", "SceneOutliner", "LevelEditor", "WorldBrowser", "Kismet", "ToolMenus"
         });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {

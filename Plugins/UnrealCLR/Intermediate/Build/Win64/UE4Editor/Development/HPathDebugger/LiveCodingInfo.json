@@ -2,6 +2,10 @@
 	"RemapUnityFiles": 
 	{
 		"Module.HPathDebugger.cpp.obj": [
+			"DetailsTool.cpp.obj",
+			"DetailsToolPanel.cpp.obj",
+			"ReplTool.cpp.obj",
+			"ReplToolPanel.cpp.obj",
 			"MenuTool.cpp.obj",
 			"BPGDIOAgent.cpp.obj",
 			"debugPanel.cpp.obj",
@@ -9,6 +13,9 @@
 			"HPathDebugger.cpp.obj",
 			"HPathDebuggerCommands.cpp.obj",
 			"HPathFramework.cpp.obj",
+			"GDIOInput.cpp.obj",
+			"RecorderTool.cpp.obj",
+			"RecorderToolPanel.cpp.obj",
 			"TabTool.cpp.obj",
 			"TabToolPanel.cpp.obj"
 		],

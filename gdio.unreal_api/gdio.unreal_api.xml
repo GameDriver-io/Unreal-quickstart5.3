@@ -4,6 +4,11 @@
         <name>gdio.unreal_api</name>
     </assembly>
     <members>
+        <member name="T:gdio.unreal_api.ApiClient">
+            <summary>
+            This class contains the api calls that allow you to interact with your game.
+            </summary> 
+        </member>
         <member name="M:gdio.unreal_api.ApiClient.Connect(System.String,System.Int32,System.Int32)">
             <summary>
             Use this function to connect to an Unreal game with GameDriver Agent configured and active.  This function can connect to the unreal editor or a Standalone deployment of a game.
@@ -59,6 +64,21 @@
             // CubeB.Transform = Vector3(6, 5, 4)
             d = api.GetObjectDistance("//*[@name = 'CubeA']", "//*[@name = 'CubeB']");
             Console.WriteLine(d.ToString()); // prints -5.0,-3.0,-1.0</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.GetObjectFieldValue``1(System.String,System.Int32)">
+            <summary>
+            This method returns the field or property value of an object.
+            </summary>
+            <typeparam name="T">The <see cref="T:System.Type"/> of the field or property to be inspected.</typeparam>
+            <param name="hierarchyPath">The HierarchyPath of the object and field/property to be inspected.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> Returns an object of type T for the value or throws an <see cref="T:System.Exception"/> on error.</returns>
+            <example> // Searches for an object named 'HiddenCube' which is invisible in the scene, and checks whether the "Active" checkbox is enabled.
+            <code escaped="true">
+            bool invisCube = api.GetObjectFieldValue&lt;bool&gt;("//*[@name='HiddenCube']/fn:component('UnityEngine.Behaviour')/@isActiveAndEnabled");
+            Assert.IsTrue(invisCube == false, "The invisible cube isn't active"); //Passes if the object is Active in the scene
+            </code>
+            </example>
         </member>
         <member name="M:gdio.unreal_api.ApiClient.GetObjectFieldValue``1(System.String,System.String,System.Int32)">
             <summary>
@@ -193,8 +213,23 @@
             </code>
             </example>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:gdio.unreal_api.ApiClient.Scroll(System.Single,System.Single,System.UInt64,System.Int32)" -->
-        <member name="M:gdio.unreal_api.ApiClient.KeyPress(gdio.unreal_api.KeyCode[],System.UInt64)">
+        <member name="M:gdio.unreal_api.ApiClient.Scroll(System.Single,System.Single,System.UInt64,System.Int32)">
+            <summary>
+            Use this function to simulate mouse wheel scrolling.
+            </summary>
+            <param name="x">The x value of the scroll vector for the mouse, usually 0.</param>
+            <param name="y">The y value of the scroll vector for the mouse, typically -1  &lt;= y &lt;= +1 </param>
+            <param name="frame_count">The numer of frames to activate scroll event. normally 1</param>
+            <param name="timeout">The time to wait for the agent to process the Scroll request.</param>
+            <returns> TRUE if the GameDriver agent was able to successfully process the request.</returns>
+            /// <example><code escaped="true">//Move the mouse to a location then scroll.
+            api.MouseMoveToPoint(new Vector2(1491, 350), 90, new Vector2(1260, 610));
+             api.WaitForEmptyInput();
+             api.Scroll(0, -1, 1);
+             api.Scroll(0, -1, 1);
+             api.Scroll(0, -1, 1);</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.KeyPress(gdio.unreal_api.UE4.KeyCode[],System.Int32)">
             
             <summary>
             Use this function to send arbitrary button states to the game. Defaults to LEFT ALT/CTRL/SHIFT/WINDOWS(COMMAND)
@@ -276,16 +311,16 @@
             <param name="timeout"> The number of seconds to wait for a response that the Click request was processed.  Input requests process asynchronously, so a response does NOT imply the input operation has completed.</param>
             <example><code escaped="true">api.Click(MouseButtons.LEFT, 0, 0, 30, 30); //Clicks the left mouse button at 0,0 for 30 frames</code></example>
         </member>
-        <member name="M:gdio.unreal_api.ApiClient.ClickEx(gdio.common.objects.MouseButtons,gdio.common.objects.Vector2,System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,System.Int32,System.Int32)">
+        <member name="M:gdio.unreal_api.ApiClient.ClickEx(gdio.common.objects.MouseButtons,gdio.common.objects.Vector2,System.UInt64,gdio.unreal_api.UE4.KeyCode[],System.UInt64,gdio.unreal_api.UE4.KeyCode[],System.UInt64,System.Int32,System.Int32)">
             <summary>
             Use this function to perform in-game mouse-clicks combined with key press operations.  The total frame count of this operation is clickFrameCount + keysNumberOfFrames + modifiersNumberOfFrames
             </summary>        
             <param name="buttonId"> The mouse button to use for the click operation.  See <see cref="T:gdio.common.objects.MouseButtons"/>.</param>           
             <param name="position"> The <see cref="T:gdio.common.objects.Vector2"/> position to perform the mouse click.</param>
             <param name="clickFrameCount"> The number of frames to click the specific position.</param>
-            <param name="keys"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> keys to press during the click operation.</param> 
+            <param name="keys"> An array of <see cref="T:gdio.unreal_api.UE4.KeyCode"/> keys to press during the click operation.</param> 
             <param name="keysNumberOfFrames"> The number of frames to press the keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
-            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> modifier keys to press during the click operation.</param>
+            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.UE4.KeyCode"/> modifier keys to press during the click operation.</param>
             <param name="modifiersNumberOfFrames">The number of frames to press the modifier keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
             <param name="delayAfterModifiersMsec"> Total time in milliseconds to wait after pressing modifier keys, before clicking the object.  This is needed when a delay is required to register the modifier keys have been pressed in game.
             If this delay is longer than that of the frame count for all of the key presses and click operations, the resulting behavior may not be what the user intends.</param>
@@ -294,7 +329,7 @@
             api.ClickEx(MouseButtons.LEFT, new Vector2(0, 0), 30, new KeyCode[] { KeyCode.C }, 5, new KeyCode[] { KeyCode.LeftShift }, 3, 500, 30);
             </code></example>
         </member>
-        <member name="M:gdio.unreal_api.ApiClient.ClickEx(gdio.common.objects.MouseButtons,System.Single,System.Single,System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,System.Int32,System.Int32)">
+        <member name="M:gdio.unreal_api.ApiClient.ClickEx(gdio.common.objects.MouseButtons,System.Single,System.Single,System.UInt64,gdio.unreal_api.UE4.KeyCode[],System.UInt64,gdio.unreal_api.UE4.KeyCode[],System.UInt64,System.Int32,System.Int32)">
             <summary>
             Use this function to perform in game mouse-clicks combined with key press operations.  The total frame count execution of this operation is clickFrameCount + keysNumberOfFrames + modifiersNumberOfFrames.
             </summary>        
@@ -302,9 +337,9 @@
             <param name="x"> The X coordinate of the game to click in Screen space.</param>
             <param name="y"> The Y coordinate of the game to click in Screen space.</param>
             <param name="clickFrameCount"> The number of frames to click the specific position.</param>
-            <param name="keys"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> keys to press during the click operation.</param> 
+            <param name="keys"> An array of <see cref="T:gdio.unreal_api.UE4.KeyCode"/> keys to press during the click operation.</param> 
             <param name="keysNumberOfFrames"> The number of frames to press the keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
-            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> modifier keys to press during the click operation.</param>
+            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.UE4.KeyCode"/> modifier keys to press during the click operation.</param>
             <param name="modifiersNumberOfFrames">The number of frames to press the modifier keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
             <param name="delayAfterModifiersMsec"> Total time in milliseconds to wait after pressing modifier keys, before clicking the object.  This is needed when a delay is required to register the modifier keys have been pressed in the game.
             If this delay is longer than that of the frame count for all of the key presses and click operations, the resulting behavior may not be what the user intends.</param>
@@ -374,7 +409,7 @@
             api.ClickObject(MouseButtons.LEFT,
                 "//*[@name='Cube']", 30, 30);</code></example>
         </member>
-        <member name="M:gdio.unreal_api.ApiClient.ClickObjectEx(gdio.common.objects.MouseButtons,System.String,System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,System.Int32,System.Int32)">
+        <member name="M:gdio.unreal_api.ApiClient.ClickObjectEx(gdio.common.objects.MouseButtons,System.String,System.UInt64,gdio.unreal_api.UE4.KeyCode[],System.UInt64,gdio.unreal_api.UE4.KeyCode[],System.UInt64,System.Int32,System.Int32)">
             <summary>
             Use this function to interact with an in-game object using mouse-clicks combined with key press operations.  The total frame count execution of this operation is clickFrameCount + keysNumberOfFrames + modifiersNumberOfFrames.
             </summary>        
@@ -382,9 +417,9 @@
             <param name="hierarchyPath"> The HierarchyPath for the GameObject to perform a click on.</param>
             <param name="clickFrameCount"> The number of frames to click the specific object.</param>
             <param name="cameraHierarchyPath"><i>Unused</i></param>
-            <param name="keys"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> keys to press during the click operation.</param> 
+            <param name="keys"> An array of <see cref="T:gdio.unreal_api.UE4.KeyCode"/> keys to press during the click operation.</param> 
             <param name="keysNumberOfFrames"> The number of frames to press the keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
-            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> modifier keys to press during the click operation.</param>
+            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.UE4.KeyCode"/> modifier keys to press during the click operation.</param>
             <param name="modifiersNumberOfFrames">The number of frames to press the modifier keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
             <param name="delayAfterModifiersMsec"> Total time in milliseconds to wait after pressing modifier keys, before clicking the object.  This is needed when a delay is required to register the modifier keys have been pressed in the game.
             If this delay is longer than that of the frame count for all of the key presses and click operations, the resulting behavior may not be what the user intends.</param>
@@ -433,16 +468,16 @@
             api.DoubleClickObject(MouseButtons.LEFT,
                 "//*[@name='Cube']", 30, 30);</code></example>
         </member>
-        <member name="M:gdio.unreal_api.ApiClient.DoubleClickEx(gdio.common.objects.MouseButtons,gdio.common.objects.Vector2,System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,System.Int32,System.Int32)">
+        <member name="M:gdio.unreal_api.ApiClient.DoubleClickEx(gdio.common.objects.MouseButtons,gdio.common.objects.Vector2,System.UInt64,gdio.unreal_api.UE4.KeyCode[],System.UInt64,gdio.unreal_api.UE4.KeyCode[],System.UInt64,System.Int32,System.Int32)">
             <summary>
             Use this function to perform in game mouse double clicks combined with key press operations.  The total frame count execution of this operation is clickFrameCount + keysNumberOfFrames + modifiersNumberOfFrames
             </summary>        
             <param name="buttonId"> The mouse button to use for the click operation.  See <see cref="T:gdio.common.objects.MouseButtons"/>.</param>        
             <param name="position"> The Vector2 position of where to double click in Screen space.</param>
             <param name="clickFrameCount"> The number of frames to click the specific position.</param>
-            <param name="keys"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> keys to press during the click operation.</param> 
+            <param name="keys"> An array of <see cref="T:gdio.unreal_api.UE4.KeyCode"/> keys to press during the click operation.</param> 
             <param name="keysNumberOfFrames"> The number of frames to press the keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
-            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> modifier keys to press during the click operation.</param>
+            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.UE4.KeyCode"/> modifier keys to press during the click operation.</param>
             <param name="modifiersNumberOfFrames">The number of frames to press the modifier keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
             <param name="delayAfterModifiersMsec"> Total time in milliseconds to wait after pressing modifier keys, before clicking the object.  This is needed when a delay is required to register the modifier keys have been pressed in the game.
             If this delay is longer than the frame count for all the key presses and click operation that the behavior of the result may not be what the user intends.</param>
@@ -454,7 +489,7 @@
                 new KeyCode[] { KeyCode.LeftShift }, 3,
                 500, 30);</code></example>
         </member>
-        <member name="M:gdio.unreal_api.ApiClient.DoubleClickEx(gdio.common.objects.MouseButtons,System.Single,System.Single,System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,System.Int32,System.Int32)">
+        <member name="M:gdio.unreal_api.ApiClient.DoubleClickEx(gdio.common.objects.MouseButtons,System.Single,System.Single,System.UInt64,gdio.unreal_api.UE4.KeyCode[],System.UInt64,gdio.unreal_api.UE4.KeyCode[],System.UInt64,System.Int32,System.Int32)">
             <summary>
             Use this function to perform in game mouse double clicks combined with key press operations.  The total frame count execution of this operation is clickFrameCount + keysNumberOfFrames + modifiersNumberOfFrames
             </summary>        
@@ -462,9 +497,9 @@
             <param name="x"> The X coordinate of the game to double click in Screen space.</param>
             <param name="y"> The Y coordinate of the game to double click in Screen space.</param>
             <param name="clickFrameCount"> The number of frames to click the specific position.</param>
-            <param name="keys"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> keys to press during the click operation.</param> 
+            <param name="keys"> An array of <see cref="T:gdio.unreal_api.UE4.KeyCode"/> keys to press during the click operation.</param> 
             <param name="keysNumberOfFrames"> The number of frames to press the keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
-            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> modifier keys to press during the click operation.</param>
+            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.UE4.KeyCode"/> modifier keys to press during the click operation.</param>
             <param name="modifiersNumberOfFrames">The number of frames to press the modifier keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
             <param name="delayAfterModifiersMsec"> Total time in milliseconds to wait after pressing modifier keys, before clicking the object.  This is needed when a delay is required to register the modifier keys have been pressed in the game.
             If this delay is longer than the frame count for all the key presses and click operation that the behavior of the result may not be what the user intends.</param>
@@ -476,7 +511,7 @@
                 new KeyCode[] { KeyCode.LeftShift }, 3,
                 500, 30);</code></example>
         </member>
-        <member name="M:gdio.unreal_api.ApiClient.DoubleClickObjectEx(gdio.common.objects.MouseButtons,System.String,System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,System.Int32,System.Int32)">
+        <member name="M:gdio.unreal_api.ApiClient.DoubleClickObjectEx(gdio.common.objects.MouseButtons,System.String,System.UInt64,gdio.unreal_api.UE4.KeyCode[],System.UInt64,gdio.unreal_api.UE4.KeyCode[],System.UInt64,System.Int32,System.Int32)">
             <summary>
             Use this function to interact with an object in game using a mouse double-click, combinated with key press operations.  The total frame count execution of this operation is clickFrameCount + keysNumberOfFrames + modifiersNumberOfFrames
             </summary>        
@@ -484,9 +519,9 @@
             <param name="hierarchyPath"> The HierarchyPath for the GameObject to perform a double-click on.</param>
             <param name="clickFrameCount"> The number of frames to double-click the specific object.</param>
             <param name="cameraHierarchyPath"><i>Unused</i></param>
-            <param name="keys"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> keys to press during the click operation.</param> 
+            <param name="keys"> An array of <see cref="T:gdio.unreal_api.UE4.KeyCode"/> keys to press during the click operation.</param> 
             <param name="keysNumberOfFrames"> The number of frames to press the keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
-            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.KeyCode"/> modifier keys to press during the click operation.</param>
+            <param name="modifiers"> An array of <see cref="T:gdio.unreal_api.UE4.KeyCode"/> modifier keys to press during the click operation.</param>
             <param name="modifiersNumberOfFrames">The number of frames to press the modifier keys parameter down.  This parameter is not additive to the total count and is automatically accumulated by the function call.</param>
             <param name="delayAfterModifiersMsec"> Total time in milliseconds to wait after pressing modifier keys, before clicking the object.  This is needed when a delay is required to register the modifier keys have been pressed in the game.
             If this delay is longer than the frame count for all the key presses and click operation that the behavior of the result may not be what the user intends.</param>
@@ -499,14 +534,14 @@
                 new KeyCode[] { KeyCode.LeftShift }, 3,
                 500, 30);</code></example>
         </member>
-        <member name="M:gdio.unreal_api.ApiClient.KeyPress(gdio.unreal_api.KeyCode[],System.UInt64,gdio.unreal_api.KeyCode[],System.UInt64,System.Int32,System.Int32)">
+        <member name="M:gdio.unreal_api.ApiClient.KeyPress(gdio.unreal_api.UE4.KeyCode[],System.UInt64,gdio.unreal_api.UE4.KeyCode[],System.UInt64,System.Int32,System.Int32)">
             
             <summary>
             Use this function to send arbitrary button states to the game. Defaults to LEFT ALT/CTRL/SHIFT/WINDOWS(COMMAND)
             </summary>
-            <param name="keys">An array of keys(<see cref="T:gdio.unreal_api.KeyCode"/>) to press.</param>
+            <param name="keys">An array of keys(<see cref="T:gdio.unreal_api.UE4.KeyCode"/>) to press.</param>
             <param name="numberOfFrames">The number of frames to press and hold the keys for.</param>
-            <param name="modifiers">An array of modifiers()<see cref="T:gdio.unreal_api.KeyCode"/> to press.</param>
+            <param name="modifiers">An array of modifiers()<see cref="T:gdio.unreal_api.UE4.KeyCode"/> to press.</param>
             <param name="modifierNumberOfFrames">The number of frames to hold the modifiers down for, before pressing the keys.</param>
             <param name="delayAfterModifiersMsec">The delay to wait between holding the modifies and pressing the keys.</param>
             <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
@@ -767,10 +802,93 @@
             <param name="id">The id retunred when creating the collision listener. </param>
             <param name="timeout"></param>
         </member>
-        <member name="T:gdio.unreal_api.KeyCode">
+        <member name="M:gdio.unreal_api.ApiClient.CreateInputDevice(System.String,System.String,System.String[],System.Boolean,System.Int32)">
+            <summary>
+            Use this function to create a VR device (OculusHMD, etc).
+            </summary>     
+            <param name="deviceType"> The type of device to be created, according to a layout.</param>
+            <param name="deviceName"> The custom name for the device. Can act as a tag of sorts.</param>
+            <param name="deviceTags"> TBD</param>
+            <param name="appendName"> Whether the name will have GDIO appended to it at the beginning.</param>
+            <param name="timeout"> The amount of time in seconds to wait for connectivity to establish with the game.</param>
+            <example><code escaped="true">// Creates an Oculus headset device
+            api.CreateInputDevice("OculusHMD", "GDIOOculusHMD", new string[] { "GDIOHMD" });</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.RemoveInputDevices(System.Int32)">
+            <summary>
+            Use this function to remove all devices that have the usage tag "GDIO".
+            </summary>     
+            <param name="timeout"> The amount of time in seconds to wait for connectivity to establish with the game.</param>
+            <example><code escaped="true">// Removes all devices and layouts with the tag "GDIO"
+            api.RemoveInputDevices();</code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.QuaternionInputEvent(System.String,gdio.common.objects.Quaternion,System.UInt64,System.Int32)">
             
-             <summary>Key codes returned by Event keyCode. Based on EKeys from UnrealEngine</summary>
+            <summary>
+            Use this function to send arbitrary Quaternion Event states to the game.
+            </summary>
+            <param name="inputControlPath">The Input Control Path for the New Input System</param>
+            <param name="value">Value of the Quaternion event</param>
+            <param name="numberOfFrames">The number of frames to press and hold the axis for.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the GameDriver agent successfully processed the request.</returns>
+            <example><code escaped="true">
+            api.QuaternionInputEvent("Left", api.EulerToQuat(-10, 0, 0), 5); //Turn controller by -10 degrees around its x axis.
+            </code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.Vector2InputEvent(System.String,gdio.common.objects.Vector2,System.UInt64,System.Int32)">
             
+            <summary>
+            Use this function to send arbitrary Vector2 Event states to the game.
+            </summary>
+            <param name="inputControlPath">The Input Control Path for the New Input System</param>
+            <param name="value">Value of the Vector2 event</param>
+            <param name="numberOfFrames">The number of frames to press and hold the axis for.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the GameDriver agent successfully processed the request.</returns>
+            <example><code escaped="true">
+            api.Vector2InputEvent("Right", new Vector2(0, 1), 2); //Move the right joystick up. 
+            </code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.Vector3InputEvent(System.String,gdio.common.objects.Vector3,System.UInt64,System.Int32)">
+            
+            <summary>
+            Use this function to send arbitrary Vector3 Event states to the game.
+            </summary>
+            <param name="inputControlPath">The Input Control Path</param>
+            <param name="value">Value of the Vector3 event</param>
+            <param name="numberOfFrames">The number of frames to press and hold the axis for.</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the GameDriver agent successfully processed the request.</returns>
+            <example><code escaped="true">
+            api.Vector3InputEvent("Left", new Vector3(0, 0, 5), 2); //Move the left controller to the coordinates relative to the HMD.
+            </code></example>
+        </member>
+        <member name="M:gdio.unreal_api.ApiClient.VRInput(System.String,gdio.common.objects.Vector3,gdio.common.objects.Quaternion,System.Int32,System.Int32)">
+            
+            <summary>
+            Convenience function to send arbitrary Vector3 with Quaternion Event states to the game for the HUD or controllers
+            </summary>
+            <param name="VRdevice">The Device you added earlier (unused for now)  </param>
+            <param name="position">Value of the Vector3 event</param>
+            <param name="orientation">Orientation.</param>
+            <param name="index">0= HMD, 1= Right, 2 = Left</param>
+            <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
+            <returns> TRUE if the GameDriver agent successfully processed the request.</returns>
+            <example><code escaped="true">
+            
+            api.VRInput("", new Vector3(0, 0, 5), api.EulerToQuat(-10, 0, 0), 2); //Move the left controller to the coordinates relative to the HMD.
+            </code></example>
+        </member>
+        <member name="T:gdio.unreal_api.UE4.KeyCode">
+            <summary>
+            Keycode is a mapping of EKeys from UnrealEngine. 
+            </summary>
+        </member>
+        <member name="T:gdio.unreal_api.UE5.KeyCode">
+            <summary>
+            Keycode is a mapping of EKeys from UnrealEngine.
+            </summary>
         </member>
     </members>
 </doc>

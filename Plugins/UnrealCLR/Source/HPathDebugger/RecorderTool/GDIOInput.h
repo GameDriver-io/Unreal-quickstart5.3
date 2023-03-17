@@ -20,7 +20,7 @@ enum recordableEvent {
  MOUSEMOVE,
  MOUSEDRAG,//ONLY knows after the fact not when started a capture.  
  MOUSESCROLL,
- TOUCH
+ TOUCH, ANALOG
 };
 #define clickThreshold 20
 class EventFragment {
@@ -96,7 +96,12 @@ public:
 	int ProcessReadyEvents();
 	uint32 getStartLowestFrame();
 	bool anyOpenClickEvents();
+	void graduateOldVREvents();
+	void setupControllerMappings();
 protected:
+	bool everoutputVR = false;
+	bool setupComplete = false;
+	TMap<FString, FString> controllerMappings;
 	RecorderToolPanel* panel;
 	TMap<int32, EventFragment> StartedEvents;
 	TArray<EventFragment> *EndingEvents = new TArray<EventFragment>();

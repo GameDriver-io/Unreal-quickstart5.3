@@ -2,7 +2,7 @@
 
 #include "../IExampleModuleInterface.h"
 #include "EditorStyleSet.h"
-
+#include "LevelEditor.h"
 class MenuTool : public IExampleModuleListenerInterface, public TSharedFromThis<MenuTool>
 {
 public:
@@ -11,8 +11,8 @@ public:
 	virtual void OnStartupModule() override;
 	virtual void OnShutdownModule() override;
 
-	void MakeMenuEntry(FMenuBuilder &menuBuilder);
-	void MakeSubMenu(FMenuBuilder &menuBuilder);
+ void MakeMenuEntry(FMenuBuilder &menuBuilder);
+ void MakeSubMenu(FMenuBuilder& menuBuilder);
 
 
 protected:
@@ -24,11 +24,11 @@ protected:
 	// UI Command functions
 	void MenuCommand1();
 	void MenuCommand2();
-	void MenuCommand3();
+	void RegisterMenuExtensions();
 
-	FName TagToAdd;
+	TSharedRef<FExtender> OnExtendLevelEditorMenu(const TSharedRef<FUICommandList> CommandList, TArray<AActor*> SelectedActors);
+private:
+ TSharedRef<FExtender> OnExtendLevelEditorViewMenu(const TSharedRef<FUICommandList> CommandList);
+	FLevelEditorModule::FLevelViewportMenuExtender_SelectedActors LevelEditorMenuExtenderDelegate;
 
-	FReply AddTag();
-	FText GetTagToAddText() const;
-	void OnTagToAddTextCommited(const FText& InText, ETextCommit::Type CommitInfo);
 };

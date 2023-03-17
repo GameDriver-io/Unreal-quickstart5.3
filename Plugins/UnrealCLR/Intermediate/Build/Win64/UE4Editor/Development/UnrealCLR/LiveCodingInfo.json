@@ -3,8 +3,9 @@
 	{
 		"Module.UnrealCLR.cpp.obj": [
 			"AGDIO_OverlapHit.cpp.obj",
+			"FGdioHMD.cpp.obj",
 			"GDIOGUI.cpp.obj",
-			"GDIOInput.cpp.obj",
+			"GDIOInputPreprocessor.cpp.obj",
 			"UHitListener.cpp.obj",
 			"UnrealCLR.cpp.obj",
 			"UnrealCLRFramework.cpp.obj",

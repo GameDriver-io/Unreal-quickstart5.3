@@ -1,3 +1,8 @@
+#v1.1 update
+- Added Vr Support
+- Added Object Explorer
+- Various fixes. 
+
 # Unreal 4.27 Quickstart
 
 The files in this repository are targeted  towards unreal 4.27. 

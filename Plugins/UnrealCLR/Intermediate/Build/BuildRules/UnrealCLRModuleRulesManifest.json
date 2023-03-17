@@ -1,7 +1,7 @@
 {
 	"SourceFiles": [
-		"E:\\Packing\\UnrealCLR\\HostProject\\Plugins\\UnrealCLR\\Source\\HPathDebugger\\HPathDebugger.Build.cs",
-		"E:\\Packing\\UnrealCLR\\HostProject\\Plugins\\UnrealCLR\\Source\\UnrealCLR\\UnrealCLR.Build.cs"
+		"E:\\Packing\\UnrealCLR\\HostProject\\Plugins\\UnrealCLR\\Source\\UnrealCLR\\UnrealCLR.Build.cs",
+		"E:\\Packing\\UnrealCLR\\HostProject\\Plugins\\UnrealCLR\\Source\\HPathDebugger\\HPathDebugger.Build.cs"
 	],
 	"EngineVersion": "4.27.2"
 }
