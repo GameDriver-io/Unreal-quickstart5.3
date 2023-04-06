@@ -16,7 +16,7 @@ public class HPathDebugger : ModuleRules {
 
         OptimizeCode = CodeOptimization.Never;
         
-       // PrecompileForTargets = PrecompileTargetsType.Any;
+        //PrecompileForTargets = PrecompileTargetsType.Any;
 
         PublicIncludePaths.AddRange(new string[] { Path.Combine(ModuleDirectory, "Public") });
 

@@ -5935,6 +5935,9 @@
         <member name="F:UnrealEngine.Framework.ControllerHand.Gun">
             <summary/>
         </member>
+        <member name="F:UnrealEngine.Framework.ControllerHand.HMD">
+            <summary/>
+        </member>
         <member name="F:UnrealEngine.Framework.ControllerHand.Special1">
             <summary/>
         </member>
@@ -6300,6 +6303,48 @@
             <summary/>
         </member>
         <member name="F:UnrealEngine.Framework.PixelFormat.R8">
+            <summary/>
+        </member>
+        <member name="F:UnrealEngine.Framework.PixelFormat.B5G5R5A1UNorm">
+            <summary/>
+        </member>
+        <member name="F:UnrealEngine.Framework.PixelFormat.ASTC4x4HDR">
+            <summary/>
+        </member>
+        <member name="F:UnrealEngine.Framework.PixelFormat.ASTC6x6HDR">
+            <summary/>
+        </member>
+        <member name="F:UnrealEngine.Framework.PixelFormat.ASTC8x8HDR">
+            <summary/>
+        </member>
+        <member name="F:UnrealEngine.Framework.PixelFormat.ASTC10x10HDR">
+            <summary/>
+        </member>
+        <member name="F:UnrealEngine.Framework.PixelFormat.ASTC12x12HDR">
+            <summary/>
+        </member>
+        <member name="F:UnrealEngine.Framework.PixelFormat.G16R16SNorm">
+            <summary/>
+        </member>
+        <member name="F:UnrealEngine.Framework.PixelFormat.R8G8UInt">
+            <summary/>
+        </member>
+        <member name="F:UnrealEngine.Framework.PixelFormat.R32G32B32UInt">
+            <summary/>
+        </member>
+        <member name="F:UnrealEngine.Framework.PixelFormat.R32G32B32SInt">
+            <summary/>
+        </member>
+        <member name="F:UnrealEngine.Framework.PixelFormat.R32G32B32F">
+            <summary/>
+        </member>
+        <member name="F:UnrealEngine.Framework.PixelFormat.R8SInt">
+            <summary/>
+        </member>
+        <member name="F:UnrealEngine.Framework.PixelFormat.R64UInt">
+            <summary/>
+        </member>
+        <member name="F:UnrealEngine.Framework.PixelFormat.R9G9B9EXP5">
             <summary/>
         </member>
         <member name="T:UnrealEngine.Framework.ObjectReference">

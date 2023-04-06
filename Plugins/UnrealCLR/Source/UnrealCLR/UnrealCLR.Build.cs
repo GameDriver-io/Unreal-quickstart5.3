@@ -37,7 +37,7 @@ public class UnrealCLR : ModuleRules {
 
 		OptimizeCode = CodeOptimization.Never;
 
-        // PrecompileForTargets = PrecompileTargetsType.Any;
+         //PrecompileForTargets = PrecompileTargetsType.Any;
         	bUsePrecompiled = true;
         PublicIncludePaths.AddRange(new string[] { });
 
