@@ -855,7 +855,7 @@
             <summary>
             Use this function to send arbitrary Vector3 Event states to the game.
             </summary>
-            <param name="inputControlPath">The Input Control Path</param>
+            <param name="inputControlPath">The Input Control Path for the New Input System</param>
             <param name="value">Value of the Vector3 event</param>
             <param name="numberOfFrames">The number of frames to press and hold the axis for.</param>
             <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
@@ -872,12 +872,12 @@
             <param name="VRdevice">The Device you added earlier (unused for now)  </param>
             <param name="position">Value of the Vector3 event</param>
             <param name="orientation">Orientation.</param>
-            <param name="index">0= HMD, 1= Right, 2 = Left</param>
+            <param name="index">0= HMD, 1= Left, 2 = Right</param>
             <param name="timeout">The timeout in seconds to wait for a response that the request was processed by the GameDriver agent.</param>
             <returns> TRUE if the GameDriver agent successfully processed the request.</returns>
             <example><code escaped="true">
             
-            api.VRInput("", new Vector3(0, 0, 5), api.EulerToQuat(-10, 0, 0), 2); //Move the left controller to the coordinates relative to the HMD.
+            api.VRInput("Left", new Vector3(0, 0, 5), api.EulerToQuat(-10, 0, 0), 0); //Move the left controller to the coordinates relative to the HMD.
             </code></example>
         </member>
         <member name="T:gdio.unreal_api.UE4.KeyCode">

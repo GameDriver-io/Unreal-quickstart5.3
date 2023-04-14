@@ -1,10 +1,12 @@
-#v1.1 update RC2
+#v1.1 update RC3
 - Added Vr Support
 - Added Object Explorer
 - Various fixes. 
 
 - Added fixes the Hpath Debugger. 
 - Added Hpath featured (regexp, count, primitives, lists) 
+
+- Added foeach functionality. 
 
 # Unreal 4.27 Quickstart
 
