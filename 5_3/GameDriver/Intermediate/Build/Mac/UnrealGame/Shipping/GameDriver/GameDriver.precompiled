@@ -1,0 +1,16 @@
+{
+	"OutputFiles": [
+		"../../../arm64/UnrealGame/Shipping/GameDriver/Module.GameDriver.1.cpp.o",
+		"../../../arm64/UnrealGame/Shipping/GameDriver/Module.GameDriver.2.cpp.o",
+		"../../../arm64/UnrealGame/Shipping/GameDriver/Module.GameDriver.1.cpp.o",
+		"../../../arm64/UnrealGame/Shipping/GameDriver/Module.GameDriver.2.cpp.o",
+		"../../../x64/UnrealGame/Shipping/GameDriver/Module.GameDriver.1.cpp.o",
+		"../../../x64/UnrealGame/Shipping/GameDriver/Module.GameDriver.2.cpp.o",
+		"../../../x64/UnrealGame/Shipping/GameDriver/Module.GameDriver.1.cpp.o",
+		"../../../x64/UnrealGame/Shipping/GameDriver/Module.GameDriver.2.cpp.o",
+		"../../../arm64/UnrealGame/Shipping/GameDriver/compact25519.c.o",
+		"../../../arm64/UnrealGame/Shipping/GameDriver/compact25519.c.o",
+		"../../../x64/UnrealGame/Shipping/GameDriver/compact25519.c.o",
+		"../../../x64/UnrealGame/Shipping/GameDriver/compact25519.c.o"
+	]
+}

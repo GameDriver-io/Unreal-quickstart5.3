@@ -1,0 +1,9 @@
+{
+	"BuildId": "17155196",
+	"Modules": 
+	{
+		"GameDriver": "UE4Editor-GameDriver.dylib",
+		"GDIOXRInput": "UE4Editor-GDIOXRInput.dylib",
+		"HPathDebugger": "UE4Editor-HPathDebugger.dylib"
+	}
+}

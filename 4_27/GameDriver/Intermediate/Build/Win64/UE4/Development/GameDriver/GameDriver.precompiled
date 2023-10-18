@@ -1,0 +1,8 @@
+{
+	"OutputFiles": [
+		"Module.GameDriver.1_of_2.cpp.obj",
+		"Module.GameDriver.2_of_2.cpp.obj",
+		"Module.GameDriver.gen.cpp.obj",
+		"compact25519.c.obj"
+	]
+}

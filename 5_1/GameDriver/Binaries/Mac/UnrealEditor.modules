@@ -1,0 +1,9 @@
+{
+	"BuildId": "23058290",
+	"Modules": 
+	{
+		"GDIOXRInput": "UnrealEditor-GDIOXRInput.dylib",
+		"GameDriver": "UnrealEditor-GameDriver.dylib",
+		"HPathDebugger": "UnrealEditor-HPathDebugger.dylib"
+	}
+}

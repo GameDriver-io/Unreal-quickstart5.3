@@ -1,0 +1,10 @@
+{
+	"OutputFiles": [
+		"../../../arm64/UnrealGame/Development/GameDriver/Module.GameDriver.1_of_2.cpp.o",
+		"../../../arm64/UnrealGame/Development/GameDriver/Module.GameDriver.2_of_2.cpp.o",
+		"../../../arm64/UnrealGame/Development/GameDriver/Module.GameDriver.1_of_2.cpp.o",
+		"../../../arm64/UnrealGame/Development/GameDriver/Module.GameDriver.2_of_2.cpp.o",
+		"../../../arm64/UnrealGame/Development/GameDriver/compact25519.c.o",
+		"../../../arm64/UnrealGame/Development/GameDriver/compact25519.c.o"
+	]
+}
