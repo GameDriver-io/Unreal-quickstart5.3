@@ -12,13 +12,12 @@
 
 ## What you do next. 
 
-0. Download 2 zip files. One is the api and the other is the plugin corresponding to your Unreal Engine version. 
 1. Create an empty "unrealPlugin" folder inside the "Plugins" directory of your project.
-2. Grab the GameDriver folder from the zip file and place it in the unrealPlugin folder you just Created.
+2. Grab the GameDriver folder from inside the folder corresponding to your unreal engine version (4_47, 5_1, ETC) and copy it in the unrealPlugin folder you just Created.
 3. Place a valid license (gdio.license.txt) in a folder named "GameDriver" inside the "Content" folder of your project.
 4. Optionally, copy the provided sample.gdio.unreal_agent.config.txt to the same folder as above. Rename to gdio.unreal_agent.config.txt
 5. Open the project and click run to see the GDIO panel displaying. 
-6. Now you're ready to write external tests! You can connect to the running agent from your own test project using Gamedriver's unreal_api.
+6. Now you're ready to write external tests! You can connect to the running agent from your own test project using Gamedriver's unreal_api (in the zip) 
 
 ## Common issues
 

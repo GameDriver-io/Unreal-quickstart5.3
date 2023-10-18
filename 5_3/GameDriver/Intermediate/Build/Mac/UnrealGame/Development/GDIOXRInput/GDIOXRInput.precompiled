@@ -1,8 +1,0 @@
-{
-	"OutputFiles": [
-		"../../../arm64/UnrealGame/Development/GDIOXRInput/Module.GDIOXRInput.cpp.o",
-		"../../../arm64/UnrealGame/Development/GDIOXRInput/Module.GDIOXRInput.cpp.o",
-		"../../../x64/UnrealGame/Development/GDIOXRInput/Module.GDIOXRInput.cpp.o",
-		"../../../x64/UnrealGame/Development/GDIOXRInput/Module.GDIOXRInput.cpp.o"
-	]
-}
