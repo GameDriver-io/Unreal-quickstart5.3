@@ -1,4 +1,4 @@
-#v2.0 
+## v2.0 
 - Rebuilt Plugins in C++
 - Improvements to recorder and editor tools
 - Support for Windows/Mac/Android/iOS 
@@ -13,7 +13,7 @@
 ## What you do next. 
 
 1. Create an empty "unrealPlugin" folder inside the "Plugins" directory of your project.
-2. Grab the GameDriver folder from inside the folder corresponding to your unreal engine version (4_47, 5_1, ETC) and copy it in the unrealPlugin folder you just Created.
+2. Grab the GameDriver folder from inside the folder corresponding to your unreal engine version (4_27, 5_1, ETC) and copy it in the unrealPlugin folder you just Created.
 3. Place a valid license (gdio.license.txt) in a folder named "GameDriver" inside the "Content" folder of your project.
 4. Optionally, copy the provided sample.gdio.unreal_agent.config.txt to the same folder as above. Rename to gdio.unreal_agent.config.txt
 5. Open the project and click run to see the GDIO panel displaying. 

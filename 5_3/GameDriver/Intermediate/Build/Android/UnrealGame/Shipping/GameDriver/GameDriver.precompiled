@@ -1,0 +1,10 @@
+{
+	"OutputFiles": [
+		"..\\..\\..\\a\\UnrealGame\\Shipping\\GameDriver\\Module.GameDriver.1.cpp.o",
+		"..\\..\\..\\a\\UnrealGame\\Shipping\\GameDriver\\Module.GameDriver.2.cpp.o",
+		"..\\..\\..\\a\\UnrealGame\\Shipping\\GameDriver\\Module.GameDriver.1.cpp.o",
+		"..\\..\\..\\a\\UnrealGame\\Shipping\\GameDriver\\Module.GameDriver.2.cpp.o",
+		"..\\..\\..\\a\\UnrealGame\\Shipping\\GameDriver\\compact25519.c.o",
+		"..\\..\\..\\a\\UnrealGame\\Shipping\\GameDriver\\compact25519.c.o"
+	]
+}
