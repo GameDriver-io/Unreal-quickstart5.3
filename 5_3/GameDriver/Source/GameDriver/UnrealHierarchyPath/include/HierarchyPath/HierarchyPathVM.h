@@ -106,7 +106,7 @@ public:
 					//  6		 7		 8			  9                10			11			12		13      14, 15, 16	
 #define VARIANT_LIST    UObject, AActor, StoreResult, StoreResultArgs, StringList, ObjectList, Type, FVector, FQuat, FVector2D, TouchInputControl, Hit, IntList, FloatList, DoubleList,FLinearColor, FTransform
 template<typename... Args>
-using makePtrVariant_t = std::variant<String, int, float, bool, double, size_t, std::add_pointer_t<Args>...>;
+using makePtrVariant_t = std::variant<String, int, float, bool, double, size_t, int64, std::add_pointer_t<Args>...>;
 using HPathVariant = makePtrVariant_t<VARIANT_LIST>;
 
 enum class Variants {
@@ -116,6 +116,7 @@ enum class Variants {
 	Bool,   //3
 	Double, //4
 	Size_t, //5
+	int64, //6
 	VARIANT_LIST	
 };
 
@@ -125,6 +126,7 @@ namespace HPATHVM
 };
 
 GAMEDRIVER_API String GetObjectName(HPathVariant* item);
+GAMEDRIVER_API HPathVariant* ProcessPropertyIntoVariant(FProperty* prop, void const* obj);
 
 class HierarchyPathVM
 {

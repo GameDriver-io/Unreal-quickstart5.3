@@ -1,8 +1,8 @@
-## v2.0 
-- Rebuilt Plugins in C++
+## v2.1 
+- Added Blueprint and C++ GameDriver API
 - Improvements to the Recorder and Editor tools
-- Support for Windows/Mac/Android/iOS 
-- Added support for Unreal Engine 5.3
+- Improved input recording/playback
+
 
 ## Concept
 
@@ -22,7 +22,7 @@
 ## Common issues
 
 1. In order to simulate mouse clicks in the editor you will need to unset the "High DPI Support" flag in the editor preferences.
-![[EditorPreferences.png]]
+![[img/EditorPreferences.png]]
 2. You may need to build clean for your project at some point. Doing so will delete the precompiled binaries for the plugin. To rectify this recopy the "Binary" and " Intermediate" from the zip into your project's Plugin folder after making clean (or recopy the entire Plugin folder - if you prefer).
 3. To deploy on Mobile you'll need to add the GameDriver folder inside of Content to the list of "Additional non-Asset directories to Package".
 
