@@ -85,8 +85,10 @@ public class GameDriver : ModuleRules
         }
 
         OptimizeCode = CodeOptimization.Never;
-       // bPrecompile = true;
-        //PrecompileForTargets = PrecompileTargetsType.Any;
+        //bPrecompile = true;
+        ////PrecompileForTargets = PrecompileTargetsType.Any;
+bUsePrecompiled = true;
+
         // 	bUsePrecompiled = true;
 
         Type = ModuleType.CPlusPlus;

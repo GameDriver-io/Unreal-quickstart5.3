@@ -38,8 +38,17 @@ class LicenseToolPanel : public SCompoundWidget, public IprintInterface
 
 public:
 	const FSlateBrush* GetGamedriverIcon() const;
+	FReply HomeClicked();
+	FReply GetStartedClicked();
+	FReply ApiRefClicked();
+	FReply YoutubeClicked();
+	FReply SupportClicked();
+	FReply UpdatesClicked();
+	FReply ReviewLicenseClicked();
+	FText GetCurrentLicenceLabel() const;
 protected:
-	
+	FString* email = NULL;
+	int days = 0;
 	TWeakPtr<LicenseTool> tool;
 
 };
