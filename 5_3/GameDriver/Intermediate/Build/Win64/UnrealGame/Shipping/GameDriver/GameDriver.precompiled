@@ -2,6 +2,7 @@
 	"OutputFiles": [
 		"..\\..\\..\\x64\\UnrealGame\\Shipping\\GameDriver\\Module.GameDriver.1.cpp.obj",
 		"..\\..\\..\\x64\\UnrealGame\\Shipping\\GameDriver\\Module.GameDriver.2.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Shipping\\GameDriver\\Module.GameDriver.3.cpp.obj",
 		"..\\..\\..\\x64\\UnrealGame\\Shipping\\GameDriver\\compact25519.c.obj"
 	]
 }
