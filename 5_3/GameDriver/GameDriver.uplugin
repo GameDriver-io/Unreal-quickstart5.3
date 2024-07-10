@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "2.1",
+	"VersionName": "2.2",
 	"FriendlyName": "GameDriver",
 	"Description": "Automation test software",
 	"Category": "Other",
@@ -15,7 +15,9 @@
 	"Installed": true,
 	"SupportedTargetPlatforms": [
 		"Win64",
-		"Android","IOS","Mac"
+		"Android",
+		"IOS",
+		"Mac"
 	],
 	"Modules": [
 		{
@@ -61,6 +63,10 @@
 		},
 		{
 			"Name": "XRBase",
+			"Enabled": true
+		},
+		{
+			"Name": "CommonUI",
 			"Enabled": true
 		}
 	]
