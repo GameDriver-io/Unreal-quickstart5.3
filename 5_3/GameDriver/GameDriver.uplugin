@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "2.2",
+	"VersionName": "2.3",
 	"FriendlyName": "GameDriver",
 	"Description": "Automation test software",
 	"Category": "Other",
@@ -16,8 +16,8 @@
 	"SupportedTargetPlatforms": [
 		"Win64",
 		"Android",
-		"IOS",
-		"Mac"
+		"Mac",
+		"IOS"
 	],
 	"Modules": [
 		{
